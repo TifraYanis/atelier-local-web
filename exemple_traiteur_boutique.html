@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maison Lior - Traiteur et boutique gourmande</title>
+  <meta name="description" content="Maquette fictive de site vitrine pour une boutique traiteur, epicerie fine et PME alimentaire.">
+  <style>
+    :root {
+      --ink: #241915;
+      --muted: #72645d;
+      --paper: #fff8ef;
+      --white: #ffffff;
+      --line: #eadfce;
+      --gold: #d9902d;
+      --berry: #8b2f3e;
+      --cream: #fff3df;
+      --dark: #1d1411;
+      --shadow: 0 24px 70px rgba(36, 25, 21, .17);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(234, 223, 206, .84);
+      background: rgba(255,248,239,.94);
+      backdrop-filter: blur(14px);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--berry);
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(139,47,62,.24);
+    }
+    .brand strong, .brand span { display: block; }
+    .brand strong { font-size: 18px; line-height: 1; }
+    .brand span { margin-top: 4px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .navlinks { display: flex; align-items: center; gap: 22px; color: #463933; font-size: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button.primary { color: #fff; background: var(--berry); box-shadow: 0 14px 30px rgba(139,47,62,.24); }
+    .button.secondary { color: var(--ink); border-color: var(--line); background: rgba(255,255,255,.92); }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255,248,239,.98) 0%, rgba(255,248,239,.86) 44%, rgba(255,248,239,.12) 100%),
+        url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&fm=jpg&q=75&w=2200") center right / cover no-repeat;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 90px;
+      background: linear-gradient(180deg, rgba(255,248,239,0), var(--paper));
+    }
+    .hero-inner { position: relative; z-index: 1; width: min(720px, 100%); padding: 78px 0 118px; }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #7a4320;
+      background: rgba(217,144,45,.16);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--berry); }
+    h1 { margin: 0; font-size: clamp(42px, 7vw, 84px); line-height: .95; letter-spacing: 0; }
+    .lead { max-width: 620px; margin: 24px 0 0; color: #4a3931; font-size: clamp(18px,2vw,22px); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; max-width: 690px; margin-top: 44px; }
+    .facts > div { padding: 18px; border: 1px solid rgba(36,25,21,.08); border-radius: 8px; background: rgba(255,255,255,.86); box-shadow: 0 14px 34px rgba(36,25,21,.08); }
+    .facts strong { display: block; font-size: 22px; line-height: 1; }
+    .facts span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; }
+
+    section { padding: 86px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 30px; }
+    .section-head h2 { width: min(720px,100%); margin: 0; font-size: clamp(30px,4vw,50px); line-height: 1.04; letter-spacing: 0; }
+    .section-head p { width: min(360px,100%); margin: 0; color: var(--muted); }
+    .menu-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 16px; }
+    .showcase {
+      min-height: 510px;
+      padding: 28px;
+      border-radius: 8px;
+      color: #fff;
+      background:
+        linear-gradient(180deg, rgba(29,20,17,.22), rgba(29,20,17,.78)),
+        url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&fm=jpg&q=75&w=1600") center / cover no-repeat;
+      box-shadow: var(--shadow);
+      display: grid;
+      align-content: end;
+    }
+    .showcase h3 { margin: 0 0 8px; font-size: clamp(30px,4vw,46px); line-height: 1.02; }
+    .showcase p { margin: 0; color: #f1e6d4; }
+    .cards { display: grid; gap: 16px; }
+    .card { padding: 26px; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 12px 26px rgba(36,25,21,.06); }
+    .card span { display: inline-block; margin-bottom: 20px; color: var(--berry); font-size: 13px; font-weight: 900; text-transform: uppercase; }
+    .card h3 { margin: 0 0 10px; font-size: 22px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .contact-panel { padding: 34px; border-radius: 8px; color: #fff; background: var(--dark); box-shadow: var(--shadow); }
+    .contact-panel h2 { margin: 0; font-size: clamp(30px,4vw,48px); line-height: 1.04; letter-spacing: 0; }
+    .contact-panel p { color: #eadfce; }
+    .contact-list { display: grid; gap: 12px; margin-top: 26px; }
+    .contact-item { padding: 16px; border-radius: 8px; background: rgba(255,255,255,.08); }
+    .contact-item small { display: block; color: #d4c5b2; font-weight: 900; text-transform: uppercase; }
+    .notice { display: grid; align-content: center; gap: 14px; padding: 34px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    .notice div { padding: 18px; border-left: 4px solid var(--gold); background: var(--cream); }
+    .notice strong, .notice span { display: block; }
+    .notice span { margin-top: 4px; color: var(--muted); }
+    footer { padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 900px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .navlinks { width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
+      .hero { min-height: auto; }
+      .hero-inner { padding: 64px 0 92px; }
+      .facts, .menu-grid, .contact { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .showcase { min-height: 360px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 28px,1120px); }
+      .brand span, .navlinks a:not(.button) { display: none; }
+      .button { width: 100%; }
+      .hero-actions { flex-direction: column; }
+      section { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Accueil Maison Lior">
+        <span class="mark">ML</span>
+        <span><strong>Maison Lior</strong><span>Traiteur - Boutique gourmande</span></span>
+      </a>
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a href="#offre">Offre</a>
+        <a href="#contact" class="button primary">Commander</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <p class="kicker">Maquette fictive - Commerce alimentaire</p>
+          <h1>Traiteur, plateaux repas et boutique gourmande.</h1>
+          <p class="lead">Une page chaleureuse pour une PME alimentaire qui veut presenter ses produits, faciliter les commandes et donner envie de passer en boutique.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:atelierlocalweb@gmail.com?subject=Je%20veux%20une%20maquette%20commerce">Demander une maquette similaire</a>
+            <a class="button secondary" href="#offre">Voir l'offre</a>
+          </div>
+          <div class="facts">
+            <div><strong>Traiteur</strong><span>Evenements et entreprise</span></div>
+            <div><strong>Boutique</strong><span>Produits maison</span></div>
+            <div><strong>Commande</strong><span>Contact simple</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Un univers plus chaleureux pour une activite commerce ou alimentaire.</h2>
+          <p>Un style different des artisans techniques, avec plus de visuel, d'ambiance et de desirabilite.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="showcase">
+            <h3>Produits du jour et commandes entreprise</h3>
+            <p>Une grande zone visuelle pour mettre en avant les produits, les plateaux et les offres saisonnieres.</p>
+          </article>
+          <div class="cards">
+            <article class="card"><span>01</span><h3>Plateaux repas</h3><p>Formules du midi, livraison possible et commandes groupees.</p></article>
+            <article class="card"><span>02</span><h3>Evenements</h3><p>Buffets, cocktails, reunions et prestations sur mesure.</p></article>
+            <article class="card"><span>03</span><h3>Boutique</h3><p>Selection maison, produits frais et idees cadeaux gourmandes.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact">
+        <div class="contact-panel">
+          <h2>Une page qui donne envie de commander.</h2>
+          <p>La maquette peut etre adaptee a une boulangerie, un traiteur, une epicerie fine, un caviste ou un commerce de quartier.</p>
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:atelierlocalweb@gmail.com"><small>Contact maquette</small>atelierlocalweb@gmail.com</a>
+            <div class="contact-item"><small>Type</small>Commerce, PME alimentaire, boutique locale</div>
+          </div>
+        </div>
+        <div class="notice">
+          <div><strong>Maquette fictive</strong><span>Nom, activite et contenus crees pour presenter un style de site possible.</span></div>
+          <div><strong>Adaptable</strong><span>Photos produits, carte, horaires, adresse et systeme de commande peuvent etre ajoutes.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">Maison Lior est une maquette fictive creee par Atelier Local Web.</div></footer>
+</body>
+</html>
+

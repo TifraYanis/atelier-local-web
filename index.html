@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier Local Web - Sites vitrines pour artisans locaux</title>
+  <meta name="description" content="Atelier Local Web cree des sites vitrines modernes, rapides et efficaces pour artisans, independants et petites entreprises locales.">
+  <style>
+    :root {
+      --ink: #111315;
+      --paper: #fbfaf7;
+      --soft: #f0eee7;
+      --line: #ded9ca;
+      --muted: #66695f;
+      --white: #ffffff;
+      --yellow: #f6c445;
+      --green: #24a879;
+      --coral: #e95d3f;
+      --blue: #2b6fd6;
+      --dark: #101113;
+      --shadow: 0 24px 70px rgba(17, 19, 21, .18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(222, 217, 202, .7);
+      background: rgba(251, 250, 247, .92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--yellow);
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(246, 196, 69, .32);
+    }
+
+    .brand-copy strong,
+    .brand-copy span {
+      display: block;
+    }
+
+    .brand-copy strong {
+      line-height: 1;
+      font-size: 18px;
+    }
+
+    .brand-copy span {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #333631;
+      font-size: 14px;
+    }
+
+    .navlinks a:not(.button):hover {
+      color: var(--blue);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      color: var(--ink);
+      background: var(--yellow);
+      box-shadow: 0 16px 34px rgba(246, 196, 69, .32);
+    }
+
+    .button.dark {
+      color: #ffffff;
+      background: var(--ink);
+      box-shadow: 0 16px 34px rgba(17, 19, 21, .22);
+    }
+
+    .button.ghost {
+      border-color: rgba(255, 255, 255, .32);
+      color: #ffffff;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: #ffffff;
+      background: var(--dark);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(16, 17, 19, .95) 0%, rgba(16, 17, 19, .82) 44%, rgba(16, 17, 19, .24) 100%),
+        url("maquettes/exemple_garage_auto.png") right 8% center / min(920px, 70vw) auto no-repeat;
+      opacity: .98;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 96px;
+      background: linear-gradient(180deg, rgba(16, 17, 19, 0), var(--paper));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(760px, 100%);
+      padding: 76px 0 120px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #fff8dd;
+      background: rgba(246, 196, 69, .14);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--yellow);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 8vw, 96px);
+      line-height: .93;
+      letter-spacing: 0;
+    }
+
+    h1 span {
+      display: block;
+    }
+
+    .hero-lead {
+      width: min(660px, 100%);
+      margin: 26px 0 0;
+      color: #e9e7dc;
+      font-size: clamp(18px, 2vw, 23px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      width: min(720px, 100%);
+      margin-top: 44px;
+    }
+
+    .hero-proof div {
+      min-height: 110px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-proof strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .hero-proof span {
+      display: block;
+      margin-top: 8px;
+      color: #d2d0c7;
+      font-size: 13px;
+    }
+
+    section {
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      width: min(760px, 100%);
+      margin: 0;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      width: min(380px, 100%);
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      min-height: 250px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 26px rgba(17, 19, 21, .06);
+    }
+
+    .feature span {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 28px;
+      border-radius: 8px;
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    .feature:nth-child(1) span { background: var(--blue); }
+    .feature:nth-child(2) span { background: var(--green); }
+    .feature:nth-child(3) span { background: var(--coral); }
+    .feature:nth-child(4) span { background: var(--ink); }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.12;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .work-band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .project-media {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #ece8dd;
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .35s ease;
+    }
+
+    .project:hover .project-media img {
+      transform: scale(1.04);
+    }
+
+    .project-copy {
+      padding: 22px;
+    }
+
+    .project-copy small {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: #3c3422;
+      background: rgba(246, 196, 69, .2);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .project-copy h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.12;
+    }
+
+    .project-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .project-link {
+      display: inline-flex;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .process-panel {
+      padding: 34px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: var(--dark);
+      box-shadow: var(--shadow);
+    }
+
+    .process-panel h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .process-panel p {
+      color: #ddd9cd;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--yellow);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 0 0 6px;
+      font-size: 21px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .offer {
+      min-height: 250px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 12px 26px rgba(17, 19, 21, .06);
+    }
+
+    .offer strong {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .offer h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .offer p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-section {
+      padding: 0 0 88px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 28px;
+      align-items: stretch;
+      padding: 34px;
+      border-radius: 8px;
+      color: #ffffff;
+      background:
+        linear-gradient(135deg, rgba(17, 19, 21, 1), rgba(28, 34, 33, 1));
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .contact-box p {
+      color: #ddd9cd;
+      font-size: 18px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .contact-card {
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .contact-card div {
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .contact-card small {
+      display: block;
+      color: #bbb8ae;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 940px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .navlinks {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        overflow-x: auto;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(16, 17, 19, .98) 0%, rgba(16, 17, 19, .95) 58%, rgba(16, 17, 19, .74) 100%),
+          url("maquettes/exemple_garage_auto.png") center bottom / 980px auto no-repeat;
+      }
+
+      .hero-inner {
+        padding: 64px 0 130px;
+      }
+
+      .hero-proof,
+      .features,
+      .portfolio,
+      .process,
+      .offer-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .brand-copy span,
+      .navlinks a:not(.button) {
+        display: none;
+      }
+
+      .button,
+      .hero-actions a,
+      .contact-actions a {
+        width: 100%;
+      }
+
+      section {
+        padding: 66px 0;
+      }
+
+      .contact-section {
+        padding-bottom: 66px;
+      }
+
+      .contact-box {
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 42px;
+        line-height: 1;
+      }
+
+      .hero::before {
+        background: #101113;
+      }
+
+      .hero-proof {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Accueil Atelier Local Web">
+        <span class="brand-mark">ALW</span>
+        <span class="brand-copy">
+          <strong>Atelier Local Web</strong>
+          <span>Sites vitrines pour artisans locaux</span>
+        </span>
+      </a>
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#maquettes">Maquettes</a>
+        <a href="#methode">Methode</a>
+        <a class="button dark" href="mailto:atelierlocalweb@gmail.com?subject=Demande%20de%20site%20vitrine">Me contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <p class="eyebrow">Saint-Etienne, Loire et alentours</p>
+          <h1><span>Atelier Local</span><span>Web</span></h1>
+          <p class="hero-lead">Des sites vitrines modernes pour artisans, independants et petites entreprises qui veulent etre visibles, credibles et faciles a contacter.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:atelierlocalweb@gmail.com?subject=Projet%20de%20site%20vitrine">Demander une maquette</a>
+            <a class="button ghost" href="#maquettes">Voir des exemples</a>
+          </div>
+          <div class="hero-proof" aria-label="Points forts">
+            <div>
+              <strong>Mobile</strong>
+              <span>Pages pensees pour les clients qui cherchent depuis leur telephone</span>
+            </div>
+            <div>
+              <strong>Rapide</strong>
+              <span>Site statique, clair, leger et pret pour GitHub Pages ou un domaine</span>
+            </div>
+            <div>
+              <strong>Local</strong>
+              <span>Textes adaptes aux metiers, aux villes et aux demandes de devis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Une presence web qui aide vraiment a recevoir des demandes.</h2>
+          <p>Chaque page est construite pour expliquer l'activite, rassurer le client et rendre le contact evident.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <span>1</span>
+            <h3>Page vitrine moderne</h3>
+            <p>Hero fort, prestations lisibles, appels a l'action, coordonnees et sections utiles sans surcharge.</p>
+          </article>
+          <article class="feature">
+            <span>2</span>
+            <h3>Texte adapte au metier</h3>
+            <p>Electricien, plombier, peintre, menuisier ou commerce: le contenu parle aux vrais clients.</p>
+          </article>
+          <article class="feature">
+            <span>3</span>
+            <h3>Mise en ligne simple</h3>
+            <p>Publication sur GitHub Pages, nom de domaine possible et page consultable sur mobile.</p>
+          </article>
+          <article class="feature">
+            <span>4</span>
+            <h3>Contact direct</h3>
+            <p>Bouton telephone, email de devis et parcours court pour limiter les demandes perdues.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="maquettes" class="work-band">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Des maquettes concretes, pas des promesses floues.</h2>
+          <p>Les exemples sont fictifs, varies et pensés pour montrer plusieurs univers possibles.</p>
+        </div>
+        <div class="portfolio">
+          <article class="project">
+            <div class="project-media">
+              <img src="maquettes/exemple_charpente_sarl.png" alt="Maquette de site vitrine pour SARL de charpente et couverture">
+            </div>
+            <div class="project-copy">
+              <small>BTP - SARL</small>
+              <h3>Roche & Bois SARL</h3>
+              <p>Un style solide pour charpente, couverture, extension bois et chantiers locaux.</p>
+              <a class="project-link" href="exemple_charpente_sarl.html">Ouvrir la maquette</a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-media">
+              <img src="maquettes/exemple_garage_auto.png" alt="Maquette de site vitrine pour garage automobile">
+            </div>
+            <div class="project-copy">
+              <small>Garage - PME</small>
+              <h3>Nova Auto Services</h3>
+              <p>Un rendu plus technique pour atelier auto, diagnostic, entretien et prise de rendez-vous.</p>
+              <a class="project-link" href="exemple_garage_auto.html">Ouvrir la maquette</a>
+            </div>
+          </article>
+          <article class="project">
+            <div class="project-media">
+              <img src="maquettes/exemple_traiteur_boutique.png" alt="Maquette de site vitrine pour commerce traiteur">
+            </div>
+            <div class="project-copy">
+              <small>Commerce local</small>
+              <h3>Maison Lior</h3>
+              <p>Une ambiance chaleureuse pour traiteur, boutique gourmande, epicerie ou commerce de quartier.</p>
+              <a class="project-link" href="exemple_traiteur_boutique.html">Ouvrir la maquette</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="methode">
+      <div class="wrap process">
+        <div class="process-panel">
+          <h2>Une methode courte, lisible et sans tunnel complique.</h2>
+          <p>L'objectif est de livrer rapidement une page propre qui correspond au metier et qui peut evoluer avec de vraies photos, un logo ou un domaine.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:atelierlocalweb@gmail.com?subject=Je%20veux%20une%20maquette">Lancer une maquette</a>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">01</span>
+            <div>
+              <h3>On cadre l'activite</h3>
+              <p>Metier, zone d'intervention, services, coordonnees, photos disponibles et priorites.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-number">02</span>
+            <div>
+              <h3>Je prepare une premiere version</h3>
+              <p>Design, textes, structure et appels a l'action sont montes sur une page consultable.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-number">03</span>
+            <div>
+              <h3>On ajuste avec vos retours</h3>
+              <p>Photos, wording, zone, prestations, couleurs et informations pratiques sont finalises.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-number">04</span>
+            <div>
+              <h3>La page est mise en ligne</h3>
+              <p>Publication, liens de contact, version mobile et possibilite d'ajouter un nom de domaine.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Ce que chaque site doit faire des la premiere visite.</h2>
+          <p>Un bon site vitrine ne remplit pas des pages: il aide le client a comprendre et a passer a l'action.</p>
+        </div>
+        <div class="offer-grid">
+          <article class="offer">
+            <strong>Credibilite</strong>
+            <h3>Faire serieux en quelques secondes</h3>
+            <p>Un rendu moderne change la perception avant meme le premier appel.</p>
+          </article>
+          <article class="offer">
+            <strong>Clarte</strong>
+            <h3>Dire exactement ce que vous faites</h3>
+            <p>Prestations, zone et types de demandes sont affiches sans jargon inutile.</p>
+          </article>
+          <article class="offer">
+            <strong>Contact</strong>
+            <h3>Reduire les frictions</h3>
+            <p>Le client peut appeler, envoyer un email ou demander un devis depuis son telephone.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <h2>Vous voulez une page qui donne envie de vous appeler ?</h2>
+            <p>Envoyez votre activite, votre ville et ce que vous voulez mettre en avant. Je peux preparer une premiere piste de maquette et vous la presenter simplement.</p>
+            <div class="contact-actions">
+              <a class="button primary" href="mailto:atelierlocalweb@gmail.com?subject=Projet%20de%20site%20vitrine%20Atelier%20Local%20Web">Ecrire a Atelier Local Web</a>
+              <a class="button ghost" href="#maquettes">Voir les exemples</a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div>
+              <small>Email</small>
+              atelierlocalweb@gmail.com
+            </div>
+            <div>
+              <small>Zone</small>
+              Saint-Etienne, Andrezieux-Boutheon, Loire et projets a distance
+            </div>
+            <div>
+              <small>Pour qui</small>
+              Artisans, independants, commerces et petites entreprises locales
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Atelier Local Web - Sites vitrines modernes pour artisans et petites entreprises locales.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova Auto Services - Garage automobile</title>
+  <meta name="description" content="Maquette fictive de site vitrine pour un garage automobile et atelier mecanique.">
+  <style>
+    :root {
+      --ink: #101419;
+      --muted: #65717d;
+      --paper: #f4f6f8;
+      --white: #ffffff;
+      --line: #dfe5ea;
+      --red: #e14236;
+      --blue: #1768c4;
+      --dark: #0d1117;
+      --shadow: 0 24px 70px rgba(16, 20, 25, .2);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(223, 229, 234, .82);
+      background: rgba(244,246,248,.94);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--red), var(--blue));
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(225,66,54,.24);
+    }
+    .brand strong, .brand span { display: block; }
+    .brand strong { font-size: 18px; line-height: 1; }
+    .brand span { margin-top: 4px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .navlinks { display: flex; align-items: center; gap: 22px; color: #303944; font-size: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 900;
+      line-height: 1;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button.primary { color: #fff; background: var(--red); box-shadow: 0 14px 30px rgba(225,66,54,.25); }
+    .button.secondary { color: #fff; border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      background: var(--dark);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(13,17,23,.96) 0%, rgba(13,17,23,.84) 46%, rgba(13,17,23,.2) 100%),
+        url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&fm=jpg&q=75&w=2200") center right / cover no-repeat;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 90px;
+      background: linear-gradient(180deg, rgba(13,17,23,0), var(--paper));
+    }
+    .hero-inner { position: relative; z-index: 1; width: min(720px, 100%); padding: 78px 0 118px; }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #ffe3df;
+      background: rgba(225,66,54,.18);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .kicker::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--red); }
+    h1 { margin: 0; font-size: clamp(42px, 7vw, 84px); line-height: .95; letter-spacing: 0; }
+    .lead { max-width: 640px; margin: 24px 0 0; color: #dfe7ee; font-size: clamp(18px, 2vw, 22px); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .facts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; max-width: 690px; margin-top: 44px; }
+    .facts > div { padding: 18px; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; background: rgba(255,255,255,.08); backdrop-filter: blur(10px); }
+    .facts strong { display: block; font-size: 22px; line-height: 1; }
+    .facts span { display: block; margin-top: 8px; color: #c9d4de; font-size: 13px; }
+
+    section { padding: 86px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 30px; }
+    .section-head h2 { width: min(720px,100%); margin: 0; font-size: clamp(30px, 4vw, 50px); line-height: 1.04; letter-spacing: 0; }
+    .section-head p { width: min(360px,100%); margin: 0; color: var(--muted); }
+    .services { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+    .card { min-height: 220px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 12px 26px rgba(16,20,25,.06); }
+    .card span { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-bottom: 24px; border-radius: 8px; color: #fff; background: var(--blue); font-weight: 900; }
+    .card h3 { margin: 0 0 10px; font-size: 21px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .stripe { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
+    .workshop { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: stretch; }
+    .panel { padding: 34px; border-radius: 8px; color: #fff; background: var(--dark); box-shadow: var(--shadow); }
+    .panel h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.04; letter-spacing: 0; }
+    .panel p { color: #dfe7ee; }
+    .timeline { display: grid; gap: 14px; }
+    .step { display: grid; grid-template-columns: 46px 1fr; gap: 16px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; }
+    .step b { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 8px; color: #fff; background: var(--red); }
+    .step h3 { margin: 0 0 6px; font-size: 20px; }
+    .step p { margin: 0; color: var(--muted); }
+
+    footer { padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .navlinks { width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
+      .hero { min-height: auto; }
+      .hero-inner { padding: 64px 0 92px; }
+      .facts, .services, .workshop { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .brand span, .navlinks a:not(.button) { display: none; }
+      .button { width: 100%; }
+      .hero-actions { flex-direction: column; }
+      section { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Accueil Nova Auto Services">
+        <span class="mark">NA</span>
+        <span><strong>Nova Auto Services</strong><span>Garage - Entretien - Diagnostic</span></span>
+      </a>
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a href="#services">Atelier</a>
+        <a href="#contact" class="button primary">Prendre rendez-vous</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <p class="kicker">Maquette fictive - Garage automobile</p>
+          <h1>Un atelier clair pour entretenir, diagnostiquer et reparer.</h1>
+          <p class="lead">Une vitrine efficace pour un garage independant: services visibles, prise de rendez-vous rapide et informations pratiques des le premier ecran.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:atelierlocalweb@gmail.com?subject=Je%20veux%20une%20maquette%20garage">Demander une maquette similaire</a>
+            <a class="button secondary" href="#services">Voir les services</a>
+          </div>
+          <div class="facts">
+            <div><strong>RDV</strong><span>Entretien et reparation</span></div>
+            <div><strong>Diag</strong><span>Controle electronique</span></div>
+            <div><strong>Local</strong><span>Garage independant</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Une page orientee rendez-vous et confiance atelier.</h2>
+          <p>Le client comprend vite quoi demander, quand appeler et comment preparer son passage.</p>
+        </div>
+        <div class="services">
+          <article class="card"><span>1</span><h3>Entretien</h3><p>Vidange, filtres, freinage, pneus et revision selon kilometrage.</p></article>
+          <article class="card"><span>2</span><h3>Diagnostic</h3><p>Lecture defauts, voyants, batterie, demarrage et recherche de panne.</p></article>
+          <article class="card"><span>3</span><h3>Reparation</h3><p>Pieces d'usure, liaison au sol, refroidissement et interventions courantes.</p></article>
+          <article class="card"><span>4</span><h3>Conseil</h3><p>Devis lisible, priorites d'intervention et suivi du vehicule.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="stripe">
+      <div class="wrap workshop">
+        <div class="panel">
+          <h2>Une maquette pensee pour un atelier qui veut plus d'appels qualifies.</h2>
+          <p>La page peut etre adaptee avec photos du garage, horaires, marques prises en charge, avis clients et formulaire de rendez-vous.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:atelierlocalweb@gmail.com">Contacter Atelier Local Web</a>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="step"><b>1</b><div><h3>Motif du rendez-vous</h3><p>Entretien, panne, voyant, controle ou preparation technique.</p></div></article>
+          <article class="step"><b>2</b><div><h3>Informations vehicule</h3><p>Modele, kilometrage, symptomes et disponibilites du client.</p></div></article>
+          <article class="step"><b>3</b><div><h3>Retour clair</h3><p>Le garage rappelle avec les priorites et les prochaines etapes.</p></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">Nova Auto Services est une maquette fictive creee par Atelier Local Web.</div></footer>
+</body>
+</html>
+
