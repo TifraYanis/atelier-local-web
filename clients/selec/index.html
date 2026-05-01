@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S'Elec - Electricien a Andrezieux-Boutheon</title>
+  <meta name="description" content="S'Elec, electricien a Andrezieux-Boutheon pour installation, depannage et mise en securite electrique.">
+  <style>
+    :root {
+      --bg: #f5f7f8;
+      --ink: #111820;
+      --muted: #63707c;
+      --line: #dce3e8;
+      --white: #ffffff;
+      --brand: #e4a11b;
+      --brand-2: #1769aa;
+      --dark: #0f1720;
+      --shadow: 0 24px 70px rgba(17, 24, 32, .18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(220, 227, 232, .85);
+      background: rgba(245, 247, 248, .94);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      color: #111820;
+      background: var(--brand);
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(228, 161, 27, .3);
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .brand > span:not(.mark) {
+      display: block;
+      min-width: 0;
+    }
+
+    .brand > span:not(.mark) span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #303b46;
+      font-size: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 800;
+      line-height: 1;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+    .button.primary {
+      color: #111820;
+      background: var(--brand);
+      box-shadow: 0 12px 30px rgba(228, 161, 27, .28);
+    }
+    .button.secondary {
+      color: var(--ink);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, .92);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(245, 247, 248, .98) 0%, rgba(245, 247, 248, .88) 48%, rgba(245, 247, 248, .14) 100%),
+        url("https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&fm=jpg&q=70&w=2200") center right / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 90px;
+      background: linear-gradient(180deg, rgba(245, 247, 248, 0), var(--bg));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(710px, 100%);
+      padding: 76px 0 118px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #70500b;
+      background: rgba(228, 161, 27, .14);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--brand-2);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 7vw, 78px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      width: min(620px, 100%);
+      margin: 24px 0 0;
+      color: #35424d;
+      font-size: clamp(18px, 2vw, 22px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      width: min(680px, 100%);
+      margin-top: 42px;
+    }
+
+    .quick div {
+      padding: 18px;
+      border: 1px solid rgba(17, 24, 32, .08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .86);
+      box-shadow: 0 14px 34px rgba(17, 24, 32, .08);
+    }
+
+    .quick strong {
+      display: block;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .quick span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section { padding: 86px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      width: min(720px, 100%);
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      width: min(370px, 100%);
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 235px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 12px 26px rgba(17, 24, 32, .06);
+    }
+
+    .card .icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 28px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: var(--brand-2);
+      font-weight: 900;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .visual {
+      min-height: 430px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      background: #d8e1e8;
+    }
+
+    .visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .proof-list {
+      display: grid;
+      gap: 14px;
+      align-content: center;
+    }
+
+    .proof {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fafb;
+    }
+
+    .proof h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+    }
+
+    .proof p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      padding: 34px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: var(--dark);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .contact-panel p { color: #d8e2ea; }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .contact-item {
+      padding: 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .contact-item small {
+      display: block;
+      color: #b9c5cf;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .quote-box {
+      display: grid;
+      align-content: center;
+      gap: 14px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .quote-box div {
+      padding: 18px;
+      border-left: 4px solid var(--brand);
+      background: #f8fafb;
+    }
+
+    .quote-box strong { display: block; }
+    .quote-box span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 880px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .navlinks { width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
+      .hero {
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(245, 247, 248, .98) 0%, rgba(245, 247, 248, .85) 62%, rgba(245, 247, 248, .32) 100%),
+          url("https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&fm=jpg&q=70&w=1600") center / cover no-repeat;
+      }
+      .hero-content { padding: 64px 0 92px; }
+      .quick, .services, .proof-grid, .contact { grid-template-columns: 1fr; }
+      .section-head { align-items: start; flex-direction: column; }
+      .visual { min-height: 320px; }
+    }
+
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .brand > span:not(.mark) span, .navlinks a:not(.button) { display: none; }
+      .hero-actions { flex-direction: column; }
+      .button { width: 100%; }
+      section { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Accueil S'Elec">
+        <span class="mark">S'</span>
+        <span><strong>S'Elec</strong><span>Electricite generale - 42160</span></span>
+      </a>
+      <nav class="navlinks" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#contact" class="button primary">Demander un devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-content">
+          <p class="kicker">Electricien a Andrezieux-Boutheon</p>
+          <h1>Un contact direct pour vos travaux et depannages electriques.</h1>
+          <p class="lead">S'Elec intervient pour l'installation, la mise en securite et la maintenance electrique des logements, locaux professionnels et petits chantiers autour d'Andrezieux-Boutheon.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:s-elec@orange.fr?subject=Demande%20de%20devis%20electricite">Envoyer une demande</a>
+            <a class="button secondary" href="tel:+33967122463">09 67 12 24 63</a>
+          </div>
+          <div class="quick" aria-label="Informations rapides">
+            <div><strong>2012</strong><span>Entreprise referencee depuis 2012</span></div>
+            <div><strong>42160</strong><span>Basee rue du Treyve</span></div>
+            <div><strong>Elec</strong><span>Installation et maintenance</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Installation, renovation et mise en securite electrique.</h2>
+          <p>Un electricien local pour les interventions courantes, les remises aux normes et les petits chantiers planifies.</p>
+        </div>
+        <div class="services">
+          <article class="card">
+            <span class="icon">1</span>
+            <h3>Tableaux et mise en securite</h3>
+            <p>Remplacement, protection, controle et remise a niveau d'installations electriques.</p>
+          </article>
+          <article class="card">
+            <span class="icon">2</span>
+            <h3>Travaux logement</h3>
+            <p>Prises, luminaires, circuits, renovation partielle et interventions en maison ou appartement.</p>
+          </article>
+          <article class="card">
+            <span class="icon">3</span>
+            <h3>Locaux professionnels</h3>
+            <p>Petites installations, maintenance et adaptation electrique pour commerces ou bureaux.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap proof-grid">
+        <div class="visual">
+          <img src="https://images.unsplash.com/photo-1758101755915-462eddc23f57?auto=format&fit=crop&fm=jpg&q=70&w=1600" alt="Controle d'un tableau electrique">
+        </div>
+        <div class="proof-list">
+          <article class="proof">
+            <h3>Intervention locale</h3>
+            <p>Deplacements autour d'Andrezieux-Boutheon, Saint-Just-Saint-Rambert, Veauche et la plaine du Forez.</p>
+          </article>
+          <article class="proof">
+            <h3>Diagnostic avant devis</h3>
+            <p>La demande est cadree avec le type d'installation, l'urgence, les photos disponibles et les contraintes d'acces.</p>
+          </article>
+          <article class="proof">
+            <h3>Travail propre</h3>
+            <p>Protection des zones d'intervention, reperage clair des circuits et remise en service verifiee.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact">
+        <div class="contact-panel">
+          <h2>Demander un devis electrique.</h2>
+          <p>Indiquez la commune, le type de local, le probleme rencontre et si l'intervention concerne un depannage ou des travaux planifies.</p>
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:s-elec@orange.fr"><small>Email</small>s-elec@orange.fr</a>
+            <a class="contact-item" href="tel:+33967122463"><small>Telephone</small>09 67 12 24 63</a>
+            <div class="contact-item"><small>Adresse</small>27 Rue du Treyve, 42160 Andrezieux-Boutheon</div>
+          </div>
+        </div>
+        <div class="quote-box">
+          <div><strong>Travaux</strong><span>Pieces concernees, nombre de prises, points lumineux et tableau existant.</span></div>
+          <div><strong>Depannage</strong><span>Symptomes, urgence, protections declenchees et disponibilites.</span></div>
+          <div><strong>Professionnels</strong><span>Horaires possibles, acces, contraintes d'exploitation et delai souhaite.</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">S'Elec - Electricite generale a Andrezieux-Boutheon.</div>
+  </footer>
+</body>
+</html>
