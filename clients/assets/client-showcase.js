@@ -2,6 +2,10 @@
   var progress = document.querySelector(".progress");
   var revealItems = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
 
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+
   function updateProgress() {
     if (!progress) return;
     var scrollTop = window.scrollY || document.documentElement.scrollTop;
