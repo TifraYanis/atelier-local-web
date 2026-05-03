@@ -112,6 +112,17 @@ textarea {
   letter-spacing: 0;
 }
 
+.brand-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.brand-img--conte {
+  height: 62px;
+}
+
 .brand strong {
   font-size: clamp(26px, 4vw, 46px);
   line-height: 1;
@@ -801,6 +812,10 @@ h2 {
 
   .brand strong {
     font-size: 28px;
+  }
+
+  .brand-img--conte {
+    height: 48px;
   }
 
   .conte-mark {
