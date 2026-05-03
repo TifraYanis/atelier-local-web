@@ -3,536 +3,175 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AADM - Plomberie a Saint-Etienne</title>
-  <meta name="description" content="AADM, plombier a Saint-Etienne pour depannage, plomberie, sanitaires et chauffage.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AADM - Plombier chauffagiste a Saint-Etienne</title>
+  <meta name="description" content="AADM, plomberie, chauffage, sanitaires et depannage autour de Saint-Etienne.">
+  <link rel="stylesheet" href="../assets/client-showcase.css">
   <style>
     :root {
-      --bg: #f3f8f8;
-      --ink: #102025;
-      --muted: #5d6d72;
-      --line: #d8e6e7;
-      --white: #ffffff;
-      --brand: #0f8b8d;
-      --brand-2: #d96c2c;
-      --dark: #0e1c20;
-      --shadow: 0 24px 70px rgba(16, 32, 37, .16);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--bg);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(216, 230, 231, .85);
-      background: rgba(243, 248, 248, .94);
-      backdrop-filter: blur(14px);
-    }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .mark {
-      display: grid;
-      place-items: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 8px;
-      color: #ffffff;
-      background: var(--brand);
-      font-weight: 900;
-      box-shadow: 0 12px 28px rgba(15, 139, 141, .28);
-    }
-
-    .brand strong {
-      display: block;
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    .brand > span:not(.mark) {
-      display: block;
-      min-width: 0;
-    }
-
-    .brand > span:not(.mark) span {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .navlinks {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      color: #2e4348;
-      font-size: 14px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      font-weight: 800;
-      line-height: 1;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-
-    .button:hover { transform: translateY(-1px); }
-    .button.primary {
-      color: #ffffff;
-      background: var(--brand);
-      box-shadow: 0 12px 30px rgba(15, 139, 141, .25);
-    }
-    .button.secondary {
-      color: var(--ink);
-      border-color: var(--line);
-      background: rgba(255, 255, 255, .92);
-    }
-
-    .hero {
-      position: relative;
-      min-height: calc(100vh - 76px);
-      display: grid;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(243, 248, 248, .98) 0%, rgba(243, 248, 248, .88) 48%, rgba(243, 248, 248, .14) 100%),
-        url("https://cdn.pixabay.com/photo/2015/01/01/13/32/plumbing-585658_1280.jpg") center right / cover no-repeat;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 90px;
-      background: linear-gradient(180deg, rgba(243, 248, 248, 0), var(--bg));
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: min(710px, 100%);
-      padding: 76px 0 118px;
-    }
-
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      color: #0f6768;
-      background: rgba(15, 139, 141, .12);
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .kicker::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--brand-2);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(40px, 7vw, 78px);
-      line-height: .96;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      width: min(620px, 100%);
-      margin: 24px 0 0;
-      color: #31454a;
-      font-size: clamp(18px, 2vw, 22px);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
-    }
-
-    .quick {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      width: min(680px, 100%);
-      margin-top: 42px;
-    }
-
-    .quick div {
-      padding: 18px;
-      border: 1px solid rgba(16, 32, 37, .08);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, .86);
-      box-shadow: 0 14px 34px rgba(16, 32, 37, .08);
-    }
-
-    .quick strong {
-      display: block;
-      font-size: 21px;
-      line-height: 1;
-    }
-
-    .quick span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    section { padding: 86px 0; }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 28px;
-      margin-bottom: 30px;
-    }
-
-    .section-head h2 {
-      width: min(720px, 100%);
-      margin: 0;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-
-    .section-head p {
-      width: min(370px, 100%);
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      min-height: 235px;
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: 0 12px 26px rgba(16, 32, 37, .06);
-    }
-
-    .card .icon {
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 28px;
-      border-radius: 8px;
-      color: #ffffff;
-      background: var(--brand-2);
-      font-weight: 900;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .band {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #ffffff;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .visual {
-      min-height: 430px;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      background: #d4e4e5;
-    }
-
-    .visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .proof-list {
-      display: grid;
-      gap: 14px;
-      align-content: center;
-    }
-
-    .proof {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #f6fafb;
-    }
-
-    .proof h3 {
-      margin: 0 0 6px;
-      font-size: 20px;
-    }
-
-    .proof p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .contact {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .contact-panel {
-      padding: 34px;
-      border-radius: 8px;
-      color: #ffffff;
-      background: var(--dark);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-panel h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-
-    .contact-panel p { color: #d6e4e6; }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .contact-item {
-      padding: 16px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, .08);
-    }
-
-    .contact-item small {
-      display: block;
-      color: #b7c8cc;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .quote-box {
-      display: grid;
-      align-content: center;
-      gap: 14px;
-      padding: 34px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-    }
-
-    .quote-box div {
-      padding: 18px;
-      border-left: 4px solid var(--brand);
-      background: #f6fafb;
-    }
-
-    .quote-box strong { display: block; }
-    .quote-box span {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-    }
-
-    footer {
-      padding: 28px 0 40px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    @media (max-width: 880px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
-      .navlinks { width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
-      .hero {
-        min-height: auto;
-        background:
-          linear-gradient(180deg, rgba(243, 248, 248, .98) 0%, rgba(243, 248, 248, .85) 62%, rgba(243, 248, 248, .32) 100%),
-          url("https://cdn.pixabay.com/photo/2015/01/01/13/32/plumbing-585658_1280.jpg") center / cover no-repeat;
-      }
-      .hero-content { padding: 64px 0 92px; }
-      .quick, .services, .proof-grid, .contact { grid-template-columns: 1fr; }
-      .section-head { align-items: start; flex-direction: column; }
-      .visual { min-height: 320px; }
-    }
-
-    @media (max-width: 520px) {
-      .wrap { width: min(100% - 28px, 1120px); }
-      .brand > span:not(.mark) span, .navlinks a:not(.button) { display: none; }
-      .hero-actions { flex-direction: column; }
-      .button { width: 100%; }
-      section { padding: 64px 0; }
+      --bg: #eef7f6;
+      --ink: #102126;
+      --muted: #617176;
+      --brand: #20c6b7;
+      --brand-dark: #0b2227;
+      --accent: #df6a2e;
+      --accent-soft: rgba(223, 106, 46, .13);
+      --hero-image: url("https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1800&q=78");
     }
   </style>
 </head>
 <body>
+  <div class="progress" aria-hidden="true"></div>
+
   <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Accueil AADM">
-        <span class="mark">A</span>
-        <span><strong>AADM</strong><span>Plomberie - Chauffage - Saint-Etienne</span></span>
+    <nav class="wrap nav" aria-label="Navigation principale">
+      <a class="brand-lockup" href="#top" aria-label="Accueil AADM">
+        <span class="brand-mark">AA</span>
+        <span class="brand-copy"><strong>AADM</strong><span>Plomberie & chauffage - Saint-Etienne</span></span>
       </a>
-      <nav class="navlinks" aria-label="Navigation principale">
-        <a href="#services">Services</a>
-        <a href="#contact" class="button primary">Demander un devis</a>
-      </nav>
-    </div>
+      <div class="navlinks">
+        <a href="#services">Prestations</a>
+        <a href="#methode">Intervention</a>
+        <a href="#contact">Contact</a>
+        <a class="button dark" href="tel:+33477214747">Appeler</a>
+      </div>
+    </nav>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="wrap">
-        <div class="hero-content">
-          <p class="kicker">Plombier a Saint-Etienne</p>
-          <h1>Depannage, entretien et petits travaux de plomberie sans parcours complique.</h1>
-          <p class="lead">AADM accompagne les particuliers et petits professionnels pour les besoins de plomberie, chauffage et maintenance autour de Saint-Etienne.</p>
+      <div class="wrap hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Plombier chauffagiste a Saint-Etienne</p>
+          <h1>Une intervention claire, rapide et sans mauvaise surprise.</h1>
+          <p class="lead">Depannage plomberie, recherche de fuite, sanitaires, chauffage et petits travaux pour particuliers et professionnels autour de Saint-Etienne.</p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:aadm.42000@yahoo.fr?subject=Demande%20de%20devis%20plomberie">Envoyer une demande</a>
-            <a class="button secondary" href="tel:+33477214747">04 77 21 47 47</a>
+            <a class="button primary" href="mailto:aadm.42000@yahoo.fr?subject=Demande%20de%20devis%20plomberie">Demander un devis</a>
+            <a class="button light" href="#services">Voir les prestations</a>
           </div>
-          <div class="quick" aria-label="Informations rapides">
-            <div><strong>42000</strong><span>Adresse a Saint-Etienne</span></div>
-            <div><strong>Plomberie</strong><span>Installation et reparation</span></div>
-            <div><strong>Direct</strong><span>Telephone et email visibles</span></div>
+          <div class="metrics" aria-label="Informations rapides">
+            <div class="metric"><strong>42000</strong><span>Base a Saint-Etienne</span></div>
+            <div class="metric"><strong>Direct</strong><span>Telephone et email visibles</span></div>
+            <div class="metric"><strong>Propre</strong><span>Interventions lisibles et suivies</span></div>
           </div>
         </div>
+        <aside class="hero-panel" data-reveal>
+          <div class="panel-card">
+            <strong>Un site pense pour convertir les urgences en appels.</strong>
+            <p>Sur mobile, le client comprend vite le service, la zone et le moyen de contact.</p>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section id="services">
+    <section id="services" class="section">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Plomberie, sanitaires et chauffage a Saint-Etienne.</h2>
-          <p>Une intervention locale pour les reparations, remplacements d'equipements et travaux courants de plomberie.</p>
+        <div class="section-head" data-reveal>
+          <div>
+            <span class="section-kicker">Prestations</span>
+            <h2>Tout ce qu'un client cherche avant d'appeler un plombier.</h2>
+          </div>
+          <p>Les rubriques sont courtes, pratiques et orientees action pour rassurer rapidement depuis un telephone.</p>
         </div>
-        <div class="services">
-          <article class="card">
-            <span class="icon">1</span>
-            <h3>Fuites et reparations</h3>
-            <p>Recherche de panne simple, robinetterie, raccords, evacuations et petits depannages.</p>
-          </article>
-          <article class="card">
-            <span class="icon">2</span>
-            <h3>Sanitaires</h3>
-            <p>Remplacement d'equipements, raccordements, remise en service et interventions salle d'eau.</p>
-          </article>
-          <article class="card">
-            <span class="icon">3</span>
-            <h3>Chauffage</h3>
-            <p>Maintenance courante, controle et petits travaux lies aux installations de chauffage.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band">
-      <div class="wrap proof-grid">
-        <div class="proof-list">
-          <article class="proof">
+        <div class="service-grid">
+          <article class="service-card" data-reveal>
+            <span class="service-icon">01</span>
             <h3>Depannage plomberie</h3>
-            <p>Fuite, robinetterie, evacuation bouchee, chasse d'eau ou raccordement defectueux.</p>
+            <p>Fuite, robinetterie, chasse d'eau, evacuation bouchee, remplacement de joints ou remise en service.</p>
+            <div class="tags"><span>Urgence</span><span>Diagnostic</span><span>Reparation</span></div>
           </article>
-          <article class="proof">
-            <h3>Remplacement sanitaire</h3>
-            <p>Pose ou remplacement de lavabo, WC, evier, douche, mitigeur et accessoires.</p>
+          <article class="service-card" data-reveal>
+            <span class="service-icon">02</span>
+            <h3>Sanitaires & pieces d'eau</h3>
+            <p>Pose et remplacement d'equipements sanitaires, raccordements, adaptations et finitions propres.</p>
+            <div class="tags"><span>Salle de bain</span><span>WC</span><span>Raccordement</span></div>
           </article>
-          <article class="proof">
-            <h3>Chauffage et entretien</h3>
-            <p>Controle courant, petites reparations et adaptation des installations existantes.</p>
+          <article class="service-card" data-reveal>
+            <span class="service-icon">03</span>
+            <h3>Chauffage & entretien</h3>
+            <p>Interventions sur reseaux, radiateurs, petits travaux de chauffage et maintenance courante.</p>
+            <div class="tags"><span>Confort</span><span>Maintenance</span><span>Suivi</span></div>
           </article>
-        </div>
-        <div class="visual">
-          <img src="https://cdn.pixabay.com/photo/2015/01/01/13/32/plumbing-585658_1280.jpg" alt="Outils de plomberie sur canalisation">
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="wrap contact">
-        <div class="contact-panel">
-          <h2>Obtenir une reponse plomberie.</h2>
-          <p>Ajoutez la commune, le type d'intervention, une photo de la zone et vos disponibilites pour faciliter le retour.</p>
-          <div class="contact-list">
-            <a class="contact-item" href="mailto:aadm.42000@yahoo.fr"><small>Email</small>aadm.42000@yahoo.fr</a>
-            <a class="contact-item" href="tel:+33477214747"><small>Telephone</small>04 77 21 47 47</a>
-            <div class="contact-item"><small>Adresse</small>12 Rue des Cooperateurs, 42000 Saint-Etienne</div>
+    <section id="methode" class="section alt">
+      <div class="wrap split">
+        <div data-reveal>
+          <span class="section-kicker">Intervention</span>
+          <h2>Un parcours simple pour obtenir une reponse.</h2>
+          <div class="steps">
+            <article class="step">
+              <span class="step-num">1</span>
+              <div><h3>Le besoin est qualifie</h3><p>Le client indique le probleme, la ville et l'urgence pour eviter les allers-retours inutiles.</p></div>
+            </article>
+            <article class="step">
+              <span class="step-num">2</span>
+              <div><h3>La solution est presentee</h3><p>Depannage, remplacement ou devis travaux : le site aide a orienter vers la bonne demande.</p></div>
+            </article>
+            <article class="step">
+              <span class="step-num">3</span>
+              <div><h3>Le contact est immediat</h3><p>Appel, email ou demande ecrite : toutes les options sont visibles sans chercher.</p></div>
+            </article>
           </div>
         </div>
-        <div class="quote-box">
-          <div><strong>Depannage</strong><span>Preciser si l'eau doit etre coupee ou si la fuite est active.</span></div>
-          <div><strong>Travaux</strong><span>Indiquer les equipements a installer ou remplacer.</span></div>
-          <div><strong>Chauffage</strong><span>Joindre la marque ou une photo de l'appareil si disponible.</span></div>
+        <aside class="quote-card" data-reveal>
+          <h3>Pourquoi cette page marche mieux.</h3>
+          <p>Elle rend visible les services rentables, rassure sur la zone d'intervention et transforme le trafic local en contacts.</p>
+          <ul class="quote-list">
+            <li>CTA appel toujours accessible</li>
+            <li>Services faciles a scanner</li>
+            <li>Adresse, email et telephone au meme endroit</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap showcase">
+        <article class="showcase-tile large" data-reveal>
+          <div><strong>Une image propre pour inspirer confiance.</strong><span>Le client voit une entreprise organisee avant meme le premier appel.</span></div>
+        </article>
+        <article class="showcase-tile" style="--tile-image:url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1200&q=78')" data-reveal>
+          <div><strong>Depannage lisible</strong><span>Fuite, remplacement, diagnostic.</span></div>
+        </article>
+        <article class="showcase-tile" style="--tile-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=78')" data-reveal>
+          <div><strong>Contact mobile</strong><span>Appeler ou envoyer une demande en un geste.</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="wrap contact-grid">
+        <div class="info-card" data-reveal>
+          <span class="section-kicker">Contact</span>
+          <h2>AADM</h2>
+          <p>Plomberie, chauffage et sanitaires autour de Saint-Etienne.</p>
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:aadm.42000@yahoo.fr"><small>Email</small><strong>aadm.42000@yahoo.fr</strong></a>
+            <a class="contact-item" href="tel:+33477214747"><small>Telephone</small><strong>04 77 21 47 47</strong></a>
+            <div class="contact-item"><small>Adresse</small><strong>12 Rue des Cooperateurs, 42000 Saint-Etienne</strong></div>
+          </div>
         </div>
+        <form class="quote-card" data-mail-form data-to="aadm.42000@yahoo.fr" data-subject="Demande de devis plomberie" data-reveal>
+          <h3>Demande rapide</h3>
+          <p>Un mini-formulaire statique qui ouvre directement l'email du client avec les informations utiles.</p>
+          <div class="mini-form">
+            <div class="field"><label for="need">Besoin</label><select id="need" data-label="Besoin"><option>Depannage plomberie</option><option>Sanitaires</option><option>Chauffage</option><option>Autre demande</option></select></div>
+            <div class="field"><label for="city">Ville</label><input id="city" data-label="Ville" placeholder="Saint-Etienne, environs"></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" data-label="Message" placeholder="Decrivez rapidement le probleme"></textarea></div>
+            <button class="button primary" type="submit">Preparer l'email</button>
+          </div>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">AADM - Plomberie et chauffage a Saint-Etienne. Maquette de démonstration réalisée par Atelier Local Web. Site non officiel.</div>
+  <footer class="footer">
+    <div class="wrap">AADM - Plomberie et chauffage a Saint-Etienne</div>
   </footer>
+
+  <script src="../assets/client-showcase.js" defer></script>
 </body>
 </html>
