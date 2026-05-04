@@ -4,151 +4,285 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Atelier Local Web - Sites web modernes pour entreprises locales</title>
-  <meta name="description" content="Atelier Local Web crée des sites vitrines rapides, modernes et efficaces pour artisans, PME et entreprises locales.">
+  <meta name="description" content="Atelier Local Web crée des sites vitrines modernes, rapides et efficaces pour artisans, commerces, PME et entreprises locales.">
+  <link rel="preload" href="assets/brand/alw_logo_horizontal_dark.svg" as="image">
   <link rel="stylesheet" href="assets/atelier.css">
 </head>
 <body>
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15Z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M11 18h2"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="m13 2-9 13h7l-1 7 9-13h-7l1-7Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"/><circle cx="12" cy="10" r="2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 14a8 8 0 1 1 16 0"/><path d="M12 14l4-5"/><path d="M6.5 18h11"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="m4 20 4.2-1 10-10a2.8 2.8 0 0 0-4-4l-10 10L4 20Z"/><path d="m13 6 5 5"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16"/><path d="M8 14h3"/><path d="M14 14h2"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M13 14 10 11c1.7-5.3 5.2-8 10-8-.1 4.8-2.7 8.3-8 10Z"/><path d="M8 13 5 16l3 3 3-3"/><path d="M14 6h.01"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.8"/><path d="M16 3.2a4 4 0 0 1 0 7.6"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><path d="M3 4h18v12H3z"/><path d="M8 21h8"/><path d="M12 16v5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><path d="M6 10h12v10H6z"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  </svg>
+
   <header class="topbar">
     <nav class="wrap nav" aria-label="Navigation principale">
       <a class="brand" href="#top" aria-label="Accueil Atelier Local Web">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Atelier Local <span>Web</span></span>
+        <img src="assets/brand/alw_logo_horizontal_dark.svg" alt="Atelier Local Web">
       </a>
-      <div class="navlinks">
+      <div class="navlinks" aria-label="Navigation">
         <a href="#services">Services</a>
         <a href="#maquettes">Maquettes</a>
         <a href="#methode">Méthode</a>
         <a href="#contact">Contact</a>
-        <a class="btn btn-primary" href="mailto:atelierlocalweb@gmail.com?subject=Demande%20de%20maquette">Demander une maquette <i data-lucide="arrow-right"></i></a>
       </div>
+      <a class="btn btn-primary nav-cta" href="mailto:atelierlocalweb@gmail.com?subject=Demande%20de%20maquette">
+        Demander une maquette
+        <svg class="icon"><use href="#i-arrow-right"></use></svg>
+      </a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero">
+      <div class="hero-orbit one" aria-hidden="true"></div>
+      <div class="hero-orbit two" aria-hidden="true"></div>
       <div class="wrap hero-grid">
-        <div data-reveal>
-          <div class="eyebrow"><i data-lucide="sparkles"></i>Sites web modernes pour entreprises locales</div>
+        <div class="hero-copy" data-reveal>
+          <div class="eyebrow">
+            <svg class="icon"><use href="#i-sparkles"></use></svg>
+            Sites web modernes pour entreprises locales
+          </div>
           <h1>Des sites web modernes qui rendent les entreprises locales <span class="gradient-text">visibles et incontournables.</span></h1>
           <p>Nous créons des sites clairs, rapides et efficaces qui inspirent confiance et transforment vos visiteurs en clients.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:atelierlocalweb@gmail.com?subject=Demande%20de%20maquette">Demander une maquette <i data-lucide="arrow-right"></i></a>
-            <a class="btn btn-ghost" href="#maquettes"><i data-lucide="play"></i>Voir des exemples</a>
+            <a class="btn btn-primary" href="mailto:atelierlocalweb@gmail.com?subject=Demande%20de%20maquette">
+              Demander une maquette
+              <svg class="icon"><use href="#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn-secondary" href="#maquettes">
+              <svg class="icon"><use href="#i-play"></use></svg>
+              Voir des exemples
+            </a>
           </div>
-          <div class="hero-badges">
-            <div class="hero-badge"><i data-lucide="smartphone"></i><span>Mobile-first<br>100% responsive</span></div>
-            <div class="hero-badge"><i data-lucide="zap"></i><span>Livraison rapide<br>Dès 2 à 4 semaines</span></div>
-            <div class="hero-badge"><i data-lucide="map-pin"></i><span>Ancré localement<br>Saint-Étienne & Loire</span></div>
+          <div class="hero-badges" aria-label="Points forts">
+            <div class="hero-badge"><svg class="icon"><use href="#i-phone"></use></svg><span>Mobile-first<br>100% responsive</span></div>
+            <div class="hero-badge"><svg class="icon"><use href="#i-zap"></use></svg><span>Livraison rapide<br>Dès 2 à 4 semaines</span></div>
+            <div class="hero-badge"><svg class="icon"><use href="#i-pin"></use></svg><span>Ancré localement<br>Saint-Étienne & Loire</span></div>
           </div>
         </div>
-        <div class="hero-visual" data-reveal aria-hidden="true"></div>
+
+        <div class="hero-device-mockup" data-reveal aria-label="Aperçu de sites réalisés">
+          <div class="mockup-glow" aria-hidden="true"></div>
+          <div class="mockup-laptop">
+            <div class="mockup-topbar">
+              <span>Roche & Bois</span>
+              <span>Accueil</span>
+              <span>Services</span>
+              <span>Contact</span>
+            </div>
+            <div class="mockup-screen">
+              <div>
+                <small>Charpente & couverture</small>
+                <strong>Un site vitrine clair pour valoriser le savoir-faire local.</strong>
+                <span>Demander un devis</span>
+              </div>
+            </div>
+          </div>
+          <div class="mockup-phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <small>Nova Auto Services</small>
+              <strong>Rendez-vous et diagnostics toutes marques.</strong>
+              <span>Prendre rendez-vous</span>
+            </div>
+          </div>
+          <div class="floating-metric-card metric-top"><span>Visibilité en hausse</span><strong>+120%</strong><small>de visites en 3 mois</small></div>
+          <div class="floating-metric-card metric-bottom"><span>Demandes de contact</span><strong>+85%</strong><small>de contacts qualifiés</small></div>
+          <div class="floating-metric-card testimonial"><span>★★★★★</span><p>“Grâce à notre nouveau site, nous sommes plus visibles et recevons beaucoup plus de demandes.”</p><small>Client Atelier Local Web</small></div>
+        </div>
       </div>
     </section>
 
-    <section id="services" class="section advantages">
+    <section id="services" class="section panel-section">
       <div class="wrap">
         <div class="section-head" data-reveal>
           <span class="section-kicker">Les avantages pour votre entreprise</span>
-          <h2>Un site web qui travaille <span class="gradient-text">pour vous</span>.</h2>
+          <h2>Un site web qui travaille <span class="gradient-text">pour vous</span></h2>
         </div>
         <div class="advantages-grid">
-          <article class="advantage" data-reveal><div class="advantage-icon"><i data-lucide="eye"></i></div><h3>Plus de visibilité</h3><p>Soyez trouvé sur Google par vos futurs clients en local.</p></article>
-          <article class="advantage" data-reveal><div class="advantage-icon"><i data-lucide="shield"></i></div><h3>Crédibilité renforcée</h3><p>Inspirez confiance dès les premières secondes avec un site professionnel.</p></article>
-          <article class="advantage" data-reveal><div class="advantage-icon"><i data-lucide="message-circle"></i></div><h3>Plus de contacts</h3><p>Un site clair et orienté action pour générer des demandes qualifiées.</p></article>
-          <article class="advantage" data-reveal><div class="advantage-icon"><i data-lucide="gauge"></i></div><h3>Rapide & performant</h3><p>Des sites légers, rapides et optimisés pour le SEO technique.</p></article>
-          <article class="advantage" data-reveal><div class="advantage-icon"><i data-lucide="pencil"></i></div><h3>Simple à gérer</h3><p>Un site facile à mettre à jour, sans dépendre d'un gros prestataire.</p></article>
+          <article class="advantage" data-reveal>
+            <div class="advantage-icon"><svg class="icon"><use href="#i-eye"></use></svg></div>
+            <h3>Plus de visibilité</h3>
+            <p>Soyez trouvé sur Google par vos futurs clients en local.</p>
+          </article>
+          <article class="advantage" data-reveal>
+            <div class="advantage-icon"><svg class="icon"><use href="#i-shield"></use></svg></div>
+            <h3>Crédibilité renforcée</h3>
+            <p>Inspirez confiance dès les premières secondes avec un site professionnel.</p>
+          </article>
+          <article class="advantage" data-reveal>
+            <div class="advantage-icon"><svg class="icon"><use href="#i-message"></use></svg></div>
+            <h3>Plus de contacts</h3>
+            <p>Un site clair et orienté action pour générer des demandes qualifiées.</p>
+          </article>
+          <article class="advantage" data-reveal>
+            <div class="advantage-icon"><svg class="icon"><use href="#i-gauge"></use></svg></div>
+            <h3>Rapide & performant</h3>
+            <p>Des sites légers, rapides et optimisés pour le SEO technique.</p>
+          </article>
+          <article class="advantage" data-reveal>
+            <div class="advantage-icon"><svg class="icon"><use href="#i-pencil"></use></svg></div>
+            <h3>Simple à gérer</h3>
+            <p>Un site facile à mettre à jour, sans dépendre d'un dev.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="maquettes" class="section">
+    <section id="maquettes" class="section work-section">
       <div class="wrap">
         <div class="work-head" data-reveal>
           <div>
             <span class="section-kicker">Réalisations</span>
-            <h2>Des projets concrets, des résultats réels.</h2>
+            <h2>Des projets concrets, des résultats réels</h2>
           </div>
-          <a class="link" href="#contact">Voir toutes les maquettes <i data-lucide="arrow-right"></i></a>
+          <a class="text-link" href="#contact">Voir toutes les maquettes <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
         </div>
         <div class="project-grid">
           <article class="project-card" data-reveal>
-            <div class="project-img" style="--project-image:url('assets/generated/atelier-card-roche.png')"></div>
+            <a class="project-image roche-bois" href="exemple_charpente_sarl.html" aria-label="Voir la maquette Roche et Bois"></a>
             <div class="project-content">
-              <span class="project-type">Charpente & couverture</span>
+              <span>Charpente & couverture</span>
               <h3>Roche & Bois SARL</h3>
               <p>Site vitrine moderne mettant en valeur le savoir-faire artisanal et les réalisations.</p>
-              <a class="link" href="exemple_charpente_sarl.html">Voir la maquette <i data-lucide="arrow-right"></i></a>
+              <a class="project-link" href="exemple_charpente_sarl.html">Voir la maquette <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
             </div>
           </article>
           <article class="project-card" data-reveal>
-            <div class="project-img" style="--project-image:url('assets/generated/atelier-card-nova.png')"></div>
+            <a class="project-image nova-auto" href="exemple_garage_auto.html" aria-label="Voir la maquette Nova Auto Services"></a>
             <div class="project-content">
-              <span class="project-type">Garage automobile</span>
+              <span>Garage automobile</span>
               <h3>Nova Auto Services</h3>
               <p>Site clair et efficace pour les services, prises de rendez-vous et demandes de devis.</p>
-              <a class="link" href="exemple_garage_auto.html">Voir la maquette <i data-lucide="arrow-right"></i></a>
+              <a class="project-link" href="exemple_garage_auto.html">Voir la maquette <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
             </div>
           </article>
           <article class="project-card" data-reveal>
-            <div class="project-img" style="--project-image:url('assets/generated/atelier-card-lior.png')"></div>
+            <a class="project-image maison-lior" href="exemple_traiteur_boutique.html" aria-label="Voir la maquette Maison Lior"></a>
             <div class="project-content">
-              <span class="project-type">Décoration & rénovation</span>
+              <span>Traiteur & boutique</span>
               <h3>Maison Lior</h3>
-              <p>Univers élégant et inspirant pour présenter prestations et réalisations.</p>
-              <a class="link" href="exemple_traiteur_boutique.html">Voir la maquette <i data-lucide="arrow-right"></i></a>
+              <p>Univers élégant et gourmand pour présenter l'offre, rassurer et déclencher la commande.</p>
+              <a class="project-link" href="exemple_traiteur_boutique.html">Voir la maquette <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="methode" class="section">
+    <section id="methode" class="section method-section">
       <div class="wrap">
         <div class="section-head" data-reveal>
           <span class="section-kicker">Notre méthode</span>
-          <h2>Un processus simple et maîtrisé.</h2>
+          <h2>Un processus simple et maîtrisé</h2>
         </div>
+        <div class="method-line" aria-hidden="true"></div>
         <div class="method">
-          <article class="method-step" data-reveal><div class="method-number">1</div><div class="method-icon"><i data-lucide="message-circle"></i></div><h3>Échange & écoute</h3><p>On comprend votre activité, vos objectifs et vos clients pour poser les bases.</p></article>
-          <article class="method-step" data-reveal><div class="method-number">2</div><div class="method-icon"><i data-lucide="panel-top"></i></div><h3>Maquette sur mesure</h3><p>Nous créons une maquette moderne et adaptée à votre image.</p></article>
-          <article class="method-step" data-reveal><div class="method-number">3</div><div class="method-icon"><i data-lucide="rocket"></i></div><h3>Développement rapide</h3><p>Un site performant, responsive et optimisé pour le référencement local.</p></article>
-          <article class="method-step" data-reveal><div class="method-number">4</div><div class="method-icon"><i data-lucide="check"></i></div><h3>Mise en ligne & suivi</h3><p>On vous accompagne au lancement et reste disponible par la suite.</p></article>
+          <article class="method-step" data-reveal>
+            <span class="method-number">1</span>
+            <div class="method-icon"><svg class="icon"><use href="#i-message"></use></svg></div>
+            <h3>Échange & écoute</h3>
+            <p>On comprend votre activité, vos objectifs et vos clients pour poser les bases.</p>
+          </article>
+          <article class="method-step" data-reveal>
+            <span class="method-number">2</span>
+            <div class="method-icon"><svg class="icon"><use href="#i-panel"></use></svg></div>
+            <h3>Maquette sur mesure</h3>
+            <p>Nous créons une maquette moderne et adaptée à votre image.</p>
+          </article>
+          <article class="method-step" data-reveal>
+            <span class="method-number">3</span>
+            <div class="method-icon"><svg class="icon"><use href="#i-rocket"></use></svg></div>
+            <h3>Développement rapide</h3>
+            <p>Un site performant, responsive et optimisé pour le référencement local.</p>
+          </article>
+          <article class="method-step" data-reveal>
+            <span class="method-number">4</span>
+            <div class="method-icon"><svg class="icon"><use href="#i-check"></use></svg></div>
+            <h3>Mise en ligne & suivi</h3>
+            <p>On vous accompagne au lancement et reste disponible par la suite.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="impact-grid">
-          <div class="impact-copy" data-reveal>
-            <span class="section-kicker">Un impact concret</span>
-            <h2>Plus de crédibilité.<br>Plus de clarté.<strong>Plus de clients.</strong></h2>
-            <p>Un bon site web n'est pas une dépense, c'est un investissement rentable pour votre entreprise locale.</p>
+    <section class="section impact-section">
+      <div class="wrap impact-grid">
+        <div class="impact-copy" data-reveal>
+          <span class="section-kicker">Un impact concret</span>
+          <h2>Plus de crédibilité.<br>Plus de clarté.<br><strong>Plus de clients.</strong></h2>
+          <p>Un bon site web n'est pas une dépense, c'est un investissement rentable pour votre entreprise locale.</p>
+        </div>
+        <div class="stats" data-reveal>
+          <div class="stat">
+            <svg class="icon stat-blue"><use href="#i-users"></use></svg>
+            <strong>+120%</strong>
+            <span>Visibilité locale en moyenne</span>
           </div>
-          <div class="stats" data-reveal>
-            <div class="stat"><i data-lucide="users"></i><strong>+120%</strong><span>Visibilité locale en moyenne</span></div>
-            <div class="stat"><i data-lucide="trending-up"></i><strong>+85%</strong><span>Demandes de contact en moyenne</span></div>
-            <div class="stat"><i data-lucide="clock"></i><strong>-40%</strong><span>Temps de réponse grâce aux formulaires</span></div>
-            <div class="stat"><i data-lucide="heart"></i><strong>100%</strong><span>Sites sur mesure pensés pour vous</span></div>
+          <div class="stat">
+            <svg class="icon stat-green"><use href="#i-trend"></use></svg>
+            <strong>+85%</strong>
+            <span>Demandes de contact en moyenne</span>
+          </div>
+          <div class="stat">
+            <svg class="icon stat-amber"><use href="#i-clock"></use></svg>
+            <strong>-40%</strong>
+            <span>Temps de réponse grâce aux formulaires</span>
+          </div>
+          <div class="stat">
+            <svg class="icon stat-pink"><use href="#i-heart"></use></svg>
+            <strong>100%</strong>
+            <span>Sites sur mesure pensés pour vous</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div id="contact" class="final-card" data-reveal>
+    <section id="contact" class="section cta-section">
+      <div class="wrap final-card" data-reveal>
+        <div class="final-intro">
+          <div class="cta-icon"><svg class="icon"><use href="#i-send"></use></svg></div>
           <div>
-            <div class="cta-icon"><i data-lucide="send"></i></div>
             <span class="section-kicker">Prêt à passer à l'action ?</span>
-            <h2>Parlons de votre projet.</h2>
+            <h2>Parlons de votre projet</h2>
             <p>Recevez gratuitement une maquette personnalisée de votre futur site web, sans engagement.</p>
-            <a class="btn btn-primary" href="mailto:atelierlocalweb@gmail.com?subject=Demande%20de%20maquette%20Atelier%20Local%20Web">Demander une maquette <i data-lucide="arrow-right"></i></a>
+            <a class="btn btn-primary" href="mailto:atelierlocalweb@gmail.com?subject=Demande%20de%20maquette%20Atelier%20Local%20Web">Demander une maquette <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
           </div>
-          <div class="contact-list">
-            <a href="mailto:atelierlocalweb@gmail.com"><i data-lucide="mail"></i><span><strong>Email</strong><br>atelierlocalweb@gmail.com</span></a>
-            <div><i data-lucide="map-pin"></i><span><strong>Zone d'intervention</strong><br>Saint-Étienne, Loire et projets à distance</span></div>
-          </div>
+        </div>
+        <div class="final-contact">
+          <a href="mailto:atelierlocalweb@gmail.com">
+            <svg class="icon"><use href="#i-mail"></use></svg>
+            <span><strong>Email</strong>atelierlocalweb@gmail.com</span>
+          </a>
           <div>
-            <span class="section-kicker">Basé à Saint-Étienne</span>
-            <p>Accompagnement local, échanges simples, livraison rapide.</p>
+            <svg class="icon"><use href="#i-pin"></use></svg>
+            <span><strong>Zone d'intervention</strong>Saint-Étienne, Loire et projets à distance</span>
           </div>
+        </div>
+        <div class="mini-map" aria-label="Basé à Saint-Étienne">
+          <span>Basé à Saint-Étienne</span>
+          <div class="map-line"></div>
+          <div class="map-dot"></div>
         </div>
       </div>
     </section>
@@ -156,12 +290,18 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span>Atelier Local <span>Web</span></span></a>
+      <a class="footer-brand" href="#top" aria-label="Retour en haut">
+        <img src="assets/brand/alw_logo_mark.svg" alt="">
+        <span>Atelier Local <strong>Web</strong></span>
+      </a>
       <span>© 2025 Atelier Local Web - Tous droits réservés.</span>
+      <div class="footer-links">
+        <a href="#contact">Mentions légales</a>
+        <a href="#contact">Politique de confidentialité</a>
+      </div>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="assets/atelier.js" defer></script>
 </body>
 </html>

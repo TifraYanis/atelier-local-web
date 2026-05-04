@@ -1,0 +1,14 @@
+<svg width="430" height="96" viewBox="0 0 430 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="alwGradient" x1="8" y1="82" x2="84" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00D4FF"/>
+      <stop offset="0.55" stop-color="#2563FF"/>
+      <stop offset="1" stop-color="#5B8CFF"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 78L36.5 13C39 7 47 7 49.5 13L76 78H59L43 36L27 78H10Z" fill="url(#alwGradient)"/>
+  <path d="M35.5 78L43 59.5L50.5 78H35.5Z" fill="#00D4FF"/>
+  <text x="96" y="42" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">Atelier Local</text>
+  <text x="270" y="42" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#00D4FF">Web</text>
+  <text x="96" y="68" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="500" fill="#94A3B8">Sites web modernes pour entreprises locales</text>
+</svg>
