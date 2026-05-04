@@ -4,234 +4,381 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nova Auto Services - Garage automobile</title>
-  <meta name="description" content="Maquette fictive de site vitrine pour un garage automobile et atelier mecanique.">
+  <meta name="description" content="Exemple de site vitrine moderne pour un garage automobile, entretien, diagnostic et réparation.">
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
     :root {
-      --ink: #101419;
-      --muted: #65717d;
-      --paper: #f4f6f8;
-      --white: #ffffff;
-      --line: #dfe5ea;
-      --red: #e14236;
-      --blue: #1768c4;
-      --dark: #0d1117;
-      --shadow: 0 24px 70px rgba(16, 20, 25, .2);
+      --night: #050b12;
+      --panel: #0b131d;
+      --panel-2: #101b28;
+      --line: rgba(114, 161, 205, .26);
+      --text: #ffffff;
+      --muted: #afbdd0;
+      --blue: #007bff;
+      --orange: #ff6a00;
+      --green: #22c55e;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .46);
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 70% 0%, rgba(0, 123, 255, .18), transparent 32rem),
+        var(--night);
+      font-family: Inter, Arial, sans-serif;
       line-height: 1.55;
     }
-    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 56px)); margin: 0 auto; }
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(223, 229, 234, .82);
-      background: rgba(244,246,248,.94);
-      backdrop-filter: blur(14px);
+      z-index: 30;
+      background: rgba(5, 11, 18, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
     }
     .nav {
-      min-height: 76px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 22px;
+      gap: 28px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .mark {
-      display: grid;
-      place-items: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 8px;
-      color: #fff;
-      background: linear-gradient(135deg, var(--red), var(--blue));
+    .logo {
+      display: inline-flex;
+      align-items: end;
+      gap: 10px;
       font-weight: 900;
-      box-shadow: 0 14px 30px rgba(225,66,54,.24);
+      line-height: .86;
+      letter-spacing: 0;
+      transform: skewX(-9deg);
     }
-    .brand strong, .brand span { display: block; }
-    .brand strong { font-size: 18px; line-height: 1; }
-    .brand span { margin-top: 4px; color: var(--muted); font-size: 13px; white-space: nowrap; }
-    .navlinks { display: flex; align-items: center; gap: 22px; color: #303944; font-size: 14px; }
-    .button {
+    .logo strong { font-size: clamp(30px, 4vw, 48px); }
+    .logo span { color: var(--orange); font-size: 46px; }
+    .logo small {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      letter-spacing: .22em;
+      transform: skewX(9deg);
+    }
+    .navlinks { display: flex; align-items: center; gap: 38px; font-weight: 800; }
+    .btn {
+      min-height: 50px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
+      gap: 12px;
+      padding: 0 24px;
       border: 1px solid transparent;
       border-radius: 8px;
+      cursor: pointer;
       font-weight: 900;
-      line-height: 1;
       transition: transform .18s ease, box-shadow .18s ease;
     }
-    .button:hover { transform: translateY(-1px); }
-    .button.primary { color: #fff; background: var(--red); box-shadow: 0 14px 30px rgba(225,66,54,.25); }
-    .button.secondary { color: #fff; border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #fff; background: linear-gradient(135deg, #ff7a00, #ff4d00); box-shadow: 0 18px 42px rgba(255, 106, 0, .28); }
+    .btn-secondary { border-color: rgba(255, 255, 255, .42); background: rgba(255,255,255,.04); }
 
     .hero {
       position: relative;
-      min-height: calc(100vh - 76px);
-      display: grid;
-      align-items: center;
       overflow: hidden;
-      color: #fff;
-      background: var(--dark);
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(13,17,23,.96) 0%, rgba(13,17,23,.84) 46%, rgba(13,17,23,.2) 100%),
-        url("https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&fm=jpg&q=75&w=2200") center right / cover no-repeat;
+      border-bottom: 1px solid var(--line);
+      background: var(--night);
     }
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto 0 0;
-      height: 90px;
-      background: linear-gradient(180deg, rgba(13,17,23,0), var(--paper));
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(5,11,18,.96) 0%, rgba(5,11,18,.78) 44%, rgba(5,11,18,.08) 76%);
     }
-    .hero-inner { position: relative; z-index: 1; width: min(720px, 100%); padding: 78px 0 118px; }
-    .kicker {
-      display: inline-flex;
+    .hero-bg {
+      position: absolute;
+      inset: 0 0 0 43%;
+      background: url("assets/examples/nova-hero.png") center / cover no-repeat;
+      filter: saturate(1.06);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(620px, calc(100% - 72px));
+      margin-left: max(40px, calc((100vw - 1160px) / 2));
+      margin-right: auto;
+      min-height: 590px;
+      display: grid;
+      align-content: center;
+      padding: 76px 0;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 6vw, 72px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    h1 span, .blue { color: var(--blue); }
+    .lead {
+      max-width: 540px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 18px; margin: 32px 0; }
+    .trust-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 580px; }
+    .trust-item {
+      min-height: 70px;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
       align-items: center;
-      gap: 10px;
-      margin: 0 0 18px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      color: #ffe3df;
-      background: rgba(225,66,54,.18);
-      font-size: 13px;
+      padding: 10px;
+      color: #fff;
+    }
+    .iconbox {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--blue);
+      font-size: 24px;
+      background: rgba(255,255,255,.04);
+    }
+    .trust-item strong { display: block; line-height: 1.12; }
+    .trust-item small { color: var(--muted); }
+
+    section { padding: 62px 0; border-bottom: 1px solid var(--line); }
+    .kicker { color: var(--blue); font-size: 14px; font-weight: 900; text-transform: uppercase; }
+    .section-head { margin-bottom: 26px; }
+    .section-head h2 { margin: 5px 0 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.12; }
+    .service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .service-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      box-shadow: 0 18px 48px rgba(0,0,0,.22);
+    }
+    .service-img { height: 132px; background: var(--image) center / cover no-repeat; }
+    .service-body { padding: 24px; }
+    .circle {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin: -54px 0 18px;
+      border: 3px solid currentColor;
+      border-radius: 50%;
+      color: var(--orange);
+      background: var(--panel);
+      font-size: 24px;
       font-weight: 900;
-      text-transform: uppercase;
     }
-    .kicker::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--red); }
-    h1 { margin: 0; font-size: clamp(42px, 7vw, 84px); line-height: .95; letter-spacing: 0; }
-    .lead { max-width: 640px; margin: 24px 0 0; color: #dfe7ee; font-size: clamp(18px, 2vw, 22px); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-    .facts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; max-width: 690px; margin-top: 44px; }
-    .facts > div { padding: 18px; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; background: rgba(255,255,255,.08); backdrop-filter: blur(10px); }
-    .facts strong { display: block; font-size: 22px; line-height: 1; }
-    .facts span { display: block; margin-top: 8px; color: #c9d4de; font-size: 13px; }
+    .service-card:nth-child(even) .circle { color: var(--blue); }
+    .service-card h3, .benefit h3, .prep-item h3 { margin: 0 0 8px; font-size: 22px; }
+    .service-card p, .benefit p, .prep-item p { margin: 0; color: var(--muted); }
+    .service-card a { display: inline-block; margin-top: 17px; color: var(--blue); font-weight: 900; }
 
-    section { padding: 86px 0; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 30px; }
-    .section-head h2 { width: min(720px,100%); margin: 0; font-size: clamp(30px, 4vw, 50px); line-height: 1.04; letter-spacing: 0; }
-    .section-head p { width: min(360px,100%); margin: 0; color: var(--muted); }
-    .services { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
-    .card { min-height: 220px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 12px 26px rgba(16,20,25,.06); }
-    .card span { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-bottom: 24px; border-radius: 8px; color: #fff; background: var(--blue); font-weight: 900; }
-    .card h3 { margin: 0 0 10px; font-size: 21px; }
-    .card p { margin: 0; color: var(--muted); }
-
-    .stripe { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
-    .workshop { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: stretch; }
-    .panel { padding: 34px; border-radius: 8px; color: #fff; background: var(--dark); box-shadow: var(--shadow); }
-    .panel h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.04; letter-spacing: 0; }
-    .panel p { color: #dfe7ee; }
-    .timeline { display: grid; gap: 14px; }
-    .step { display: grid; grid-template-columns: 46px 1fr; gap: 16px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; }
-    .step b { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 8px; color: #fff; background: var(--red); }
-    .step h3 { margin: 0 0 6px; font-size: 20px; }
-    .step p { margin: 0; color: var(--muted); }
-
-    footer { padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
-    @media (max-width: 900px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
-      .navlinks { width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
-      .hero { min-height: auto; }
-      .hero-inner { padding: 64px 0 92px; }
-      .facts, .services, .workshop { grid-template-columns: 1fr; }
-      .section-head { align-items: start; flex-direction: column; }
+    .process-band {
+      background:
+        linear-gradient(90deg, rgba(5,11,18,.96), rgba(5,11,18,.78)),
+        url("assets/examples/nova-gauge.png") right center / 360px auto no-repeat;
     }
-    @media (max-width: 520px) {
-      .wrap { width: min(100% - 28px, 1120px); }
-      .brand span, .navlinks a:not(.button) { display: none; }
-      .button { width: 100%; }
-      .hero-actions { flex-direction: column; }
-      section { padding: 64px 0; }
+    .process { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 820px; }
+    .step { display: grid; grid-template-columns: 58px 1fr; gap: 16px; align-items: start; }
+    .step b {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 0 0 5px rgba(0,123,255,.3);
+    }
+    .benefits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .benefit { padding: 28px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.035); }
+    .benefit .iconbox { margin-bottom: 18px; color: var(--orange); background: transparent; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 28px;
+      border: 1px solid rgba(0,123,255,.45);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 42px rgba(0,123,255,.12);
+    }
+    .stat { min-height: 122px; padding: 24px; border-right: 1px solid rgba(0,123,255,.3); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; margin-top: 4px; font-size: 36px; line-height: 1; }
+    .stat span { color: var(--muted); }
+
+    .prep {
+      background:
+        linear-gradient(90deg, var(--night), rgba(5,11,18,.86) 55%, rgba(5,11,18,.56)),
+        url("assets/examples/nova-prep.png") right center / auto 100% no-repeat;
+    }
+    .prep-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px; max-width: 760px; margin-top: 34px; }
+    .prep-item .check { width: 34px; height: 34px; display: grid; place-items: center; margin-bottom: 14px; border: 2px solid var(--blue); border-radius: 50%; color: var(--blue); }
+
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.25fr; gap: 28px; align-items: stretch; }
+    .contact-card, .quote-form {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+    }
+    .contact-card { overflow: hidden; }
+    .contact-copy { padding: 28px; }
+    .contact-img { min-height: 210px; background: url("assets/examples/nova-building.png") center / cover no-repeat; }
+    .contact-list { display: grid; gap: 12px; margin: 22px 0; color: var(--muted); font-weight: 700; }
+    .quote-form { padding: 30px; }
+    .quote-form h2 { margin: 0 0 20px; color: var(--blue); text-transform: uppercase; font-size: 20px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-grid label { display: grid; gap: 7px; color: #dbe8ff; font-weight: 700; }
+    .form-grid textarea { min-height: 116px; resize: vertical; }
+    .form-grid textarea, .form-grid label:last-of-type { grid-row: span 2; }
+    input, select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 12px 13px; color: #fff; background: rgba(255,255,255,.035); }
+    .form-grid .btn { grid-column: 1 / -1; }
+    footer { padding: 28px 0 38px; color: var(--muted); text-align: center; }
+    footer a { color: var(--blue); font-weight: 900; }
+
+    @media (max-width: 980px) {
+      .navlinks a:not(.btn) { display: none; }
+      .hero-bg { inset: 0; opacity: .38; }
+      .service-grid, .benefits, .stats, .prep-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .nav { min-height: 68px; }
+      .logo strong { font-size: 30px; }
+      .hero-inner { width: min(100% - 28px, 620px); min-height: 610px; margin-inline: auto; padding: 52px 0; }
+      .trust-row, .service-grid, .process, .benefits, .stats, .prep-grid, .contact-grid, .form-grid { grid-template-columns: 1fr; }
+      section { padding: 50px 0; }
+      .stat { border-right: 0; border-bottom: 1px solid rgba(0,123,255,.3); }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Accueil Nova Auto Services">
-        <span class="mark">NA</span>
-        <span><strong>Nova Auto Services</strong><span>Garage - Entretien - Diagnostic</span></span>
-      </a>
-      <nav class="navlinks" aria-label="Navigation principale">
-        <a href="#services">Atelier</a>
-        <a href="#contact" class="button primary">Prendre rendez-vous</a>
-      </nav>
-    </div>
+    <nav class="wrap nav" aria-label="Navigation principale">
+      <a class="logo" href="#top"><div><strong>NOVA</strong><small>AUTO SERVICES</small></div><span>/</span></a>
+      <div class="navlinks">
+        <a href="#atelier">Atelier</a>
+        <a href="#services">Services</a>
+        <a href="#rdv">Rendez-vous</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#contact">Prendre rendez-vous →</a>
+      </div>
+    </nav>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="wrap">
-        <div class="hero-inner">
-          <p class="kicker">Maquette fictive - Garage automobile</p>
-          <h1>Un atelier clair pour entretenir, diagnostiquer et reparer.</h1>
-          <p class="lead">Une vitrine efficace pour un garage independant: services visibles, prise de rendez-vous rapide et informations pratiques des le premier ecran.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:atelierlocalweb@gmail.com?subject=Je%20veux%20une%20maquette%20garage">Demander une maquette similaire</a>
-            <a class="button secondary" href="#services">Voir les services</a>
-          </div>
-          <div class="facts">
-            <div><strong>RDV</strong><span>Entretien et reparation</span></div>
-            <div><strong>Diag</strong><span>Controle electronique</span></div>
-            <div><strong>Local</strong><span>Garage independant</span></div>
-          </div>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <h1>Un atelier clair pour entretenir, <span>diagnostiquer et réparer.</span></h1>
+        <p class="lead">Site vitrine d'un garage indépendant : services visibles, prise de rendez-vous rapide et informations pratiques dès le premier écran.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Prendre rendez-vous →</a>
+          <a class="btn btn-secondary" href="#services">Voir les services →</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><span class="iconbox">⌘</span><div><strong>Entretien & réparation</strong><small>Toutes marques</small></div></div>
+          <div class="trust-item"><span class="iconbox">▣</span><div><strong>Diagnostic électronique</strong><small>Équipements pro</small></div></div>
+          <div class="trust-item"><span class="iconbox">⌖</span><div><strong>Garage local indépendant</strong><small>Proche de vous</small></div></div>
         </div>
       </div>
     </section>
 
     <section id="services">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Une page orientee rendez-vous et confiance atelier.</h2>
-          <p>Le client comprend vite quoi demander, quand appeler et comment preparer son passage.</p>
-        </div>
-        <div class="services">
-          <article class="card"><span>1</span><h3>Entretien</h3><p>Vidange, filtres, freinage, pneus et revision selon kilometrage.</p></article>
-          <article class="card"><span>2</span><h3>Diagnostic</h3><p>Lecture defauts, voyants, batterie, demarrage et recherche de panne.</p></article>
-          <article class="card"><span>3</span><h3>Reparation</h3><p>Pieces d'usure, liaison au sol, refroidissement et interventions courantes.</p></article>
-          <article class="card"><span>4</span><h3>Conseil</h3><p>Devis lisible, priorites d'intervention et suivi du vehicule.</p></article>
+        <div class="section-head"><span class="kicker">Nos services</span><h2>Des prestations complètes, pour rouler en toute confiance.</h2></div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-img" style="--image:url('assets/examples/nova-entretien.png')"></div><div class="service-body"><div class="circle">⌁</div><h3>Entretien</h3><p>Révisions, vidanges, filtres, freinage, pneus, climatisation...</p><a href="#contact">En savoir plus →</a></div></article>
+          <article class="service-card"><div class="service-img" style="--image:url('assets/examples/nova-diagnostic.png')"></div><div class="service-body"><div class="circle">⌇</div><h3>Diagnostic</h3><p>Diagnostic électronique toutes marques, recherche de pannes, voyants, codage.</p><a href="#contact">En savoir plus →</a></div></article>
+          <article class="service-card"><div class="service-img" style="--image:url('assets/examples/nova-reparation.png')"></div><div class="service-body"><div class="circle">⚙</div><h3>Réparation</h3><p>Moteur, transmission, suspension, échappement, électricité automobile.</p><a href="#contact">En savoir plus →</a></div></article>
+          <article class="service-card"><div class="service-img" style="--image:url('assets/examples/nova-conseil.png')"></div><div class="service-body"><div class="circle">•••</div><h3>Conseil</h3><p>Conseils personnalisés pour l'entretien, l'achat de véhicule et l'optimisation.</p><a href="#contact">En savoir plus →</a></div></article>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="stripe">
-      <div class="wrap workshop">
-        <div class="panel">
-          <h2>Une maquette pensee pour un atelier qui veut plus d'appels qualifies.</h2>
-          <p>La page peut etre adaptee avec photos du garage, horaires, marques prises en charge, avis clients et formulaire de rendez-vous.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:atelierlocalweb@gmail.com">Contacter Atelier Local Web</a>
+    <section id="rdv" class="process-band">
+      <div class="wrap">
+        <div class="section-head"><span class="kicker">Prendre rendez-vous en 3 étapes</span></div>
+        <div class="process">
+          <article class="step"><b>1</b><div><h3>Motif du rendez-vous</h3><p>Choisissez le type de service ou décrivez le problème rencontré.</p></div></article>
+          <article class="step"><b>2</b><div><h3>Informations véhicule</h3><p>Indiquez votre véhicule, son kilométrage et les symptômes observés.</p></div></article>
+          <article class="step"><b>3</b><div><h3>Retour clair</h3><p>Nous confirmons le créneau, le diagnostic prévu et une estimation si possible.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="atelier">
+      <div class="wrap">
+        <div class="section-head"><span class="kicker">Pourquoi nous faire confiance ?</span></div>
+        <div class="benefits">
+          <article class="benefit"><div class="iconbox">◇</div><h3>Devis transparents</h3><p>Explications claires et devis détaillés avant toute intervention.</p></article>
+          <article class="benefit"><div class="iconbox">⏱</div><h3>Interventions rapides</h3><p>Prise en charge efficace et rendez-vous disponibles sous 48h.</p></article>
+          <article class="benefit"><div class="iconbox">✦</div><h3>Atelier propre & équipé</h3><p>Un atelier moderne, rangé et équipé d'outils de diagnostic professionnels.</p></article>
+          <article class="benefit"><div class="iconbox">☏</div><h3>Conseil client</h3><p>Une équipe à l'écoute pour répondre à vos questions avant et après l'intervention.</p></article>
+        </div>
+        <div class="stats">
+          <div class="stat"><span>PRISE DE RENDEZ-VOUS</span><strong>24/7</strong><span>En ligne</span></div>
+          <div class="stat"><span>RAPPEL SOUS</span><strong>2H</strong><span>jours ouvrés</span></div>
+          <div class="stat"><span>OUTILS DE DIAGNOSTIC</span><strong>PRO</strong><span>Multi-marques</span></div>
+          <div class="stat"><span>CLIENTS SATISFAITS</span><strong>98%</strong><span>Recommandent</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="prep">
+      <div class="wrap">
+        <span class="kicker">Bien préparer votre visite, gagner du temps.</span>
+        <p class="lead">En préparant quelques informations, nous pouvons diagnostiquer plus vite et vous proposer la meilleure solution dès le rendez-vous.</p>
+        <div class="prep-grid">
+          <article class="prep-item"><span class="check">✓</span><h3>Relevez le kilométrage</h3><p>Notez le kilométrage actuel de votre véhicule.</p></article>
+          <article class="prep-item"><span class="check">✓</span><h3>Décrivez le symptôme</h3><p>Bruits, voyants, pertes de puissance, fuites...</p></article>
+          <article class="prep-item"><span class="check">✓</span><h3>Apportez les documents</h3><p>Carnet d'entretien, factures ou rapports précédents.</p></article>
+          <article class="prep-item"><span class="check">✓</span><h3>Précisez vos disponibilités</h3><p>Plus vous êtes précis, plus nous trouvons vite un créneau.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-grid">
+        <aside class="contact-card">
+          <div class="contact-copy">
+            <span class="kicker">Informations atelier</span>
+            <div class="contact-list"><span>15 Rue des Artisans, 44470 Carquefou</span><span>02 40 25 67 89</span><span>contact@nova-auto-services.fr</span><span>Lundi - Vendredi : 8h00 - 18h30</span></div>
+            <a class="btn btn-secondary" href="#">Itinéraire Google Maps</a>
           </div>
-        </div>
-        <div class="timeline">
-          <article class="step"><b>1</b><div><h3>Motif du rendez-vous</h3><p>Entretien, panne, voyant, controle ou preparation technique.</p></div></article>
-          <article class="step"><b>2</b><div><h3>Informations vehicule</h3><p>Modele, kilometrage, symptomes et disponibilites du client.</p></div></article>
-          <article class="step"><b>3</b><div><h3>Retour clair</h3><p>Le garage rappelle avec les priorites et les prochaines etapes.</p></div></article>
-        </div>
+          <div class="contact-img"></div>
+        </aside>
+        <form class="quote-form">
+          <h2>Demande de rendez-vous</h2>
+          <div class="form-grid">
+            <label>Motif du rendez-vous<select><option>Sélectionnez un motif</option><option>Entretien</option><option>Diagnostic</option><option>Réparation</option></select></label>
+            <label>Marque / Modèle<input placeholder="Ex : Peugeot 308"></label>
+            <label>Kilométrage<input placeholder="Ex : 85 000 km"></label>
+            <label>Symptôme / Observations<textarea placeholder="Décrivez le problème ou la demande..."></textarea></label>
+            <label>Disponibilités<select><option>Sélectionnez une disponibilité</option><option>Matin</option><option>Après-midi</option></select></label>
+            <button class="btn btn-primary" type="button">Envoyer la demande</button>
+          </div>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer><div class="wrap">Nova Auto Services est une maquette fictive creee par Atelier Local Web.</div></footer>
+  <footer>Nova Auto Services est une maquette fictive créée par <a href="index.html">Atelier Local Web</a>.</footer>
 </body>
 </html>
-

@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Maison Lior - Traiteur et boutique gourmande</title>
-  <meta name="description" content="Maquette fictive de site vitrine pour une boutique traiteur, epicerie fine et PME alimentaire.">
+  <meta name="description" content="Exemple de site vitrine moderne pour un traiteur, commerce alimentaire, boutique gourmande ou épicerie fine.">
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600;700;800&display=swap");
+
     :root {
-      --ink: #241915;
-      --muted: #72645d;
-      --paper: #fff8ef;
-      --white: #ffffff;
-      --line: #eadfce;
-      --gold: #d9902d;
-      --berry: #8b2f3e;
-      --cream: #fff3df;
-      --dark: #1d1411;
-      --shadow: 0 24px 70px rgba(36, 25, 21, .17);
+      --ink: #3b2820;
+      --muted: #76665f;
+      --paper: #faf2e7;
+      --cream: #fffaf3;
+      --line: #eadcc9;
+      --gold: #c9a35b;
+      --terracotta: #c6402b;
+      --olive: #444f38;
+      --olive-dark: #313821;
+      --shadow: 0 22px 70px rgba(59, 40, 32, .16);
     }
 
     * { box-sizing: border-box; }
@@ -25,228 +27,417 @@
       margin: 0;
       color: var(--ink);
       background: var(--paper);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
+      font-family: "Source Sans 3", Arial, sans-serif;
+      line-height: 1.5;
     }
-    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 56px)); margin: 0 auto; }
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(234, 223, 206, .84);
-      background: rgba(255,248,239,.94);
-      backdrop-filter: blur(14px);
+      z-index: 30;
+      background: rgba(250, 242, 231, .95);
+      border-bottom: 1px solid rgba(234, 220, 201, .78);
+      backdrop-filter: blur(18px);
     }
-    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .mark {
-      display: grid;
-      place-items: center;
-      width: 52px;
-      height: 52px;
-      border-radius: 8px;
-      color: #fff;
-      background: var(--berry);
-      font-weight: 900;
-      box-shadow: 0 14px 30px rgba(139,47,62,.24);
+    .nav {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
     }
-    .brand strong, .brand span { display: block; }
-    .brand strong { font-size: 18px; line-height: 1; }
-    .brand span { margin-top: 4px; color: var(--muted); font-size: 13px; white-space: nowrap; }
-    .navlinks { display: flex; align-items: center; gap: 22px; color: #463933; font-size: 14px; }
-    .button {
+    .brand { display: inline-flex; align-items: center; gap: 12px; }
+    .brand-mark { color: var(--gold); font-size: 30px; line-height: 1; }
+    .brand strong {
+      display: block;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 32px;
+      line-height: .92;
+      letter-spacing: 0;
+    }
+    .brand small {
+      display: block;
+      margin-top: 6px;
+      color: #b98227;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .navlinks { display: flex; align-items: center; gap: 42px; font-weight: 700; }
+    .btn {
+      min-height: 50px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
+      gap: 10px;
+      padding: 0 24px;
       border: 1px solid transparent;
-      border-radius: 8px;
-      font-weight: 900;
-      line-height: 1;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 800;
       transition: transform .18s ease, box-shadow .18s ease;
     }
-    .button:hover { transform: translateY(-1px); }
-    .button.primary { color: #fff; background: var(--berry); box-shadow: 0 14px 30px rgba(139,47,62,.24); }
-    .button.secondary { color: var(--ink); border-color: var(--line); background: rgba(255,255,255,.92); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: #fff; background: linear-gradient(135deg, #c7462f, #a92e1e); box-shadow: 0 18px 36px rgba(198, 64, 43, .24); }
+    .btn-secondary { color: var(--ink); border-color: #8b7663; background: rgba(255,255,255,.82); }
 
     .hero {
       position: relative;
-      min-height: calc(100vh - 76px);
-      display: grid;
-      align-items: center;
       overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(255,248,239,.98) 0%, rgba(255,248,239,.86) 44%, rgba(255,248,239,.12) 100%),
-        url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&fm=jpg&q=75&w=2200") center right / cover no-repeat;
+      background: var(--cream);
     }
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto 0 0;
-      height: 90px;
-      background: linear-gradient(180deg, rgba(255,248,239,0), var(--paper));
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(255,250,243,1) 0%, rgba(255,250,243,1) 34%, rgba(255,250,243,.86) 48%, rgba(255,250,243,.18) 66%, rgba(255,250,243,0) 82%);
     }
-    .hero-inner { position: relative; z-index: 1; width: min(720px, 100%); padding: 78px 0 118px; }
-    .kicker {
-      display: inline-flex;
+    .hero-bg {
+      position: absolute;
+      inset: 0 0 0 43%;
+      background: url("assets/examples/lior-hero.png") center / cover no-repeat;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(610px, calc(100% - 72px));
+      margin-left: max(40px, calc((100vw - 1160px) / 2));
+      margin-right: auto;
+      min-height: 590px;
+      display: grid;
+      align-content: center;
+      padding: 74px 0;
+    }
+    .leaf { color: var(--gold); font-size: 32px; margin-bottom: 10px; }
+    h1 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(46px, 5vw, 70px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .rule { width: 68px; height: 2px; margin: 22px 0; background: var(--gold); }
+    .lead {
+      max-width: 510px;
+      margin: 0;
+      color: #49372f;
+      font-size: 17px;
+      font-weight: 500;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 18px; margin: 32px 0; }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 560px;
+    }
+    .quick {
+      min-height: 72px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
       align-items: center;
-      gap: 10px;
-      margin: 0 0 18px;
-      padding: 8px 12px;
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 12px 34px rgba(59, 40, 32, .08);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: #8b5d36;
+      border: 1px solid rgba(139, 93, 54, .34);
       border-radius: 999px;
-      color: #7a4320;
-      background: rgba(217,144,45,.16);
+      font-size: 20px;
+    }
+
+    section { padding: 62px 0; }
+    .cards-row { margin-top: -48px; position: relative; z-index: 3; }
+    .category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .category {
+      overflow: hidden;
+      border-radius: 11px;
+      background: var(--cream);
+      box-shadow: var(--shadow);
+    }
+    .cat-img { height: 124px; background: var(--image) center / cover no-repeat; }
+    .cat-body { padding: 26px; }
+    .cat-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin: -54px 0 18px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--terracotta);
+      border: 4px solid var(--paper);
+      font-size: 22px;
+    }
+    .category:nth-child(2) .cat-icon { background: var(--olive); }
+    .category:nth-child(3) .cat-icon { background: var(--gold); }
+    .category h2, .feature-text h2, .contact h2 {
+      margin: 0 0 10px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 31px;
+      line-height: 1.05;
+    }
+    .category p, .feature-text p, .benefit p, .step p, .contact p { margin: 0; color: var(--muted); }
+    .category a { display: inline-block; margin-top: 18px; color: var(--terracotta); font-weight: 800; }
+
+    .feature-band { background: linear-gradient(90deg, #f2e6d6, #fff7ec); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .feature-img {
+      min-height: 335px;
+      border-radius: 2px;
+      background: url("assets/examples/lior-shop.png") center / cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+    .kicker {
+      color: #b98227;
       font-size: 13px;
       font-weight: 900;
+      letter-spacing: .08em;
       text-transform: uppercase;
     }
-    .kicker::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--berry); }
-    h1 { margin: 0; font-size: clamp(42px, 7vw, 84px); line-height: .95; letter-spacing: 0; }
-    .lead { max-width: 620px; margin: 24px 0 0; color: #4a3931; font-size: clamp(18px,2vw,22px); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-    .facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; max-width: 690px; margin-top: 44px; }
-    .facts > div { padding: 18px; border: 1px solid rgba(36,25,21,.08); border-radius: 8px; background: rgba(255,255,255,.86); box-shadow: 0 14px 34px rgba(36,25,21,.08); }
-    .facts strong { display: block; font-size: 22px; line-height: 1; }
-    .facts span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; }
+    .product-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px; }
+    .product img { width: 100%; height: 80px; object-fit: cover; border-radius: 3px; }
+    .product span { display: block; margin-top: 8px; text-align: center; font-weight: 700; }
 
-    section { padding: 86px 0; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 30px; }
-    .section-head h2 { width: min(720px,100%); margin: 0; font-size: clamp(30px,4vw,50px); line-height: 1.04; letter-spacing: 0; }
-    .section-head p { width: min(360px,100%); margin: 0; color: var(--muted); }
-    .menu-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 16px; }
-    .showcase {
-      min-height: 510px;
-      padding: 28px;
-      border-radius: 8px;
-      color: #fff;
-      background:
-        linear-gradient(180deg, rgba(29,20,17,.22), rgba(29,20,17,.78)),
-        url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&fm=jpg&q=75&w=1600") center / cover no-repeat;
-      box-shadow: var(--shadow);
-      display: grid;
-      align-content: end;
+    .benefit-line {
+      background: var(--cream);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
     }
-    .showcase h3 { margin: 0 0 8px; font-size: clamp(30px,4vw,46px); line-height: 1.02; }
-    .showcase p { margin: 0; color: #f1e6d4; }
-    .cards { display: grid; gap: 16px; }
-    .card { padding: 26px; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: 0 12px 26px rgba(36,25,21,.06); }
-    .card span { display: inline-block; margin-bottom: 20px; color: var(--berry); font-size: 13px; font-weight: 900; text-transform: uppercase; }
-    .card h3 { margin: 0 0 10px; font-size: 22px; }
-    .card p { margin: 0; color: var(--muted); }
+    .benefit-title {
+      margin: 0 0 26px;
+      font-family: "Playfair Display", Georgia, serif;
+      color: #8b5d36;
+      font-size: 24px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .benefits { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; }
+    .benefit { padding: 0 30px; border-right: 1px solid var(--line); }
+    .benefit:last-child { border-right: 0; }
+    .benefit .icon { margin: 0 auto 12px; border: 0; color: #9d7341; font-size: 28px; }
+    .benefit h3 { margin: 0 0 8px; font-size: 20px; }
 
+    .steps-band { color: #fff; background: var(--olive-dark); }
+    .steps-layout { display: grid; grid-template-columns: 240px 1fr; gap: 34px; align-items: center; }
+    .steps-title { font-family: "Playfair Display", Georgia, serif; font-size: 28px; line-height: 1.1; }
+    .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+    .step { display: grid; grid-template-columns: 54px 1fr; gap: 14px; align-items: start; }
+    .step b {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ink);
+      background: #fff;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+    }
+    .step h3 { margin: 0 0 6px; font-size: 20px; }
+    .step p { color: #e7dcc9; }
+
+    .season-grid { display: grid; grid-template-columns: .6fr repeat(3, 1fr) .9fr; gap: 22px; align-items: stretch; }
+    .season-card { padding: 24px; border-radius: 10px; background: var(--cream); }
+    .season-card.quote { font-size: 18px; background: #f6ead9; }
+    .season-img { height: 130px; background: var(--image) center / cover no-repeat; border-radius: 4px; }
+    .season-img + p { margin: 10px 0 0; text-align: center; color: var(--ink); font-weight: 700; }
+    .section-title {
+      margin: 0;
+      color: var(--brown);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.08;
+    }
+
+    .contact-band { background: #f6ead9; }
     .contact {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 24px;
+      grid-template-columns: .85fr 260px 1.2fr;
+      gap: 28px;
       align-items: stretch;
     }
-    .contact-panel { padding: 34px; border-radius: 8px; color: #fff; background: var(--dark); box-shadow: var(--shadow); }
-    .contact-panel h2 { margin: 0; font-size: clamp(30px,4vw,48px); line-height: 1.04; letter-spacing: 0; }
-    .contact-panel p { color: #eadfce; }
-    .contact-list { display: grid; gap: 12px; margin-top: 26px; }
-    .contact-item { padding: 16px; border-radius: 8px; background: rgba(255,255,255,.08); }
-    .contact-item small { display: block; color: #d4c5b2; font-weight: 900; text-transform: uppercase; }
-    .notice { display: grid; align-content: center; gap: 14px; padding: 34px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-    .notice div { padding: 18px; border-left: 4px solid var(--gold); background: var(--cream); }
-    .notice strong, .notice span { display: block; }
-    .notice span { margin-top: 4px; color: var(--muted); }
-    footer { padding: 28px 0 40px; color: var(--muted); font-size: 13px; }
-
-    @media (max-width: 900px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
-      .navlinks { width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
-      .hero { min-height: auto; }
-      .hero-inner { padding: 64px 0 92px; }
-      .facts, .menu-grid, .contact { grid-template-columns: 1fr; }
-      .section-head { align-items: start; flex-direction: column; }
-      .showcase { min-height: 360px; }
+    .contact-info, .order-form {
+      padding: 30px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.72);
     }
-    @media (max-width: 520px) {
-      .wrap { width: min(100% - 28px,1120px); }
-      .brand span, .navlinks a:not(.button) { display: none; }
-      .button { width: 100%; }
-      .hero-actions { flex-direction: column; }
-      section { padding: 64px 0; }
+    .storefront { min-height: 270px; background: url("assets/examples/lior-storefront.png") center / cover no-repeat; box-shadow: var(--shadow); }
+    .contact-list { display: grid; gap: 12px; margin-top: 26px; color: var(--muted); font-weight: 700; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 12px 13px;
+      background: #fff;
+    }
+    textarea { grid-column: 1 / -1; min-height: 94px; resize: vertical; }
+    .form-grid .btn { grid-column: 1 / -1; }
+    .concept { padding: 20px 0; border-top: 1px solid var(--line); text-align: center; color: var(--muted); }
+    footer { padding: 24px 0; color: #efe5d5; background: var(--olive-dark); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+    footer a { color: var(--gold); font-weight: 800; }
+
+    @media (max-width: 980px) {
+      .navlinks a:not(.btn) { display: none; }
+      .hero-bg { inset: 0; opacity: .35; }
+      .category-grid, .feature-grid, .steps-layout, .season-grid, .contact, .footer-inner { grid-template-columns: 1fr; }
+      .benefits { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .benefit { border-right: 0; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      .nav { min-height: 70px; }
+      .brand strong { font-size: 25px; }
+      .hero-inner { width: min(100% - 28px, 610px); min-height: 620px; margin-inline: auto; padding: 52px 0; }
+      .quick-grid, .benefits, .steps, .product-strip, .form-grid { grid-template-columns: 1fr; }
+      .cards-row { margin-top: 0; }
+      section { padding: 50px 0; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Accueil Maison Lior">
-        <span class="mark">ML</span>
-        <span><strong>Maison Lior</strong><span>Traiteur - Boutique gourmande</span></span>
-      </a>
-      <nav class="navlinks" aria-label="Navigation principale">
+    <nav class="wrap nav" aria-label="Navigation principale">
+      <a class="brand" href="#top"><span class="brand-mark">⌁</span><span><strong>Maison Lior</strong><small>Traiteur et boutique gourmande</small></span></a>
+      <div class="navlinks">
         <a href="#offre">Offre</a>
-        <a href="#contact" class="button primary">Commander</a>
-      </nav>
-    </div>
+        <a href="#plateaux">Plateaux</a>
+        <a href="#evenements">Événements</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#contact">Commander</a>
+      </div>
+    </nav>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="wrap">
-        <div class="hero-inner">
-          <p class="kicker">Maquette fictive - Commerce alimentaire</p>
-          <h1>Traiteur, plateaux repas et boutique gourmande.</h1>
-          <p class="lead">Une page chaleureuse pour une PME alimentaire qui veut presenter ses produits, faciliter les commandes et donner envie de passer en boutique.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:atelierlocalweb@gmail.com?subject=Je%20veux%20une%20maquette%20commerce">Demander une maquette similaire</a>
-            <a class="button secondary" href="#offre">Voir l'offre</a>
-          </div>
-          <div class="facts">
-            <div><strong>Traiteur</strong><span>Evenements et entreprise</span></div>
-            <div><strong>Boutique</strong><span>Produits maison</span></div>
-            <div><strong>Commande</strong><span>Contact simple</span></div>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="leaf">⌁</div>
+        <h1>Traiteur, plateaux repas et boutique gourmande.</h1>
+        <div class="rule"></div>
+        <p class="lead">Maison Lior, c'est l'art de recevoir avec goût. Des recettes maison, des produits sélectionnés avec soin et un service traiteur pensé pour vos déjeuners, événements et moments d'exception.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Commander</a>
+          <a class="btn btn-secondary" href="#offre">Voir l'offre</a>
+        </div>
+        <div class="quick-grid">
+          <div class="quick"><span class="icon">♧</span><span>Événements<br>& entreprises</span></div>
+          <div class="quick"><span class="icon">♢</span><span>Produits<br>maison</span></div>
+          <div class="quick"><span class="icon">✓</span><span>Commande<br>simple</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offre" class="cards-row">
+      <div class="wrap category-grid">
+        <article class="category"><div class="cat-img" style="--image:url('assets/examples/lior-plateaux.png')"></div><div class="cat-body"><div class="cat-icon">🍽</div><h2>Plateaux repas</h2><p>Des plateaux gourmands, équilibrés et faits maison pour vos déjeuners en entreprise ou à emporter.</p><a href="#contact">Découvrir →</a></div></article>
+        <article class="category" id="evenements"><div class="cat-img" style="--image:url('assets/examples/lior-evenements.png')"></div><div class="cat-body"><div class="cat-icon">♧</div><h2>Événements</h2><p>Cocktails, buffets, repas assis. Nous créons avec vous des moments uniques et sur-mesure.</p><a href="#contact">Découvrir →</a></div></article>
+        <article class="category"><div class="cat-img" style="--image:url('assets/examples/lior-boutique.png')"></div><div class="cat-body"><div class="cat-icon">▢</div><h2>Boutique</h2><p>Épicerie fine, produits maison, vins et idées cadeaux sélectionnés avec passion.</p><a href="#contact">Découvrir →</a></div></article>
+      </div>
+    </section>
+
+    <section id="plateaux" class="feature-band">
+      <div class="wrap feature-grid">
+        <div class="feature-img" aria-hidden="true"></div>
+        <div class="feature-text">
+          <span class="kicker">Frais, local, authentique</span>
+          <h2>Produits du jour et commandes entreprise</h2>
+          <p>Chaque jour, notre équipe prépare des recettes maison à partir de produits frais et de saison. Pour vos réunions, séminaires ou événements, nous vous accompagnons avec des solutions sur-mesure.</p>
+          <div class="product-strip">
+            <div class="product"><img src="assets/examples/lior-dessert.png" alt=""><span>Tartelette fruits rouges & crème légère</span></div>
+            <div class="product"><img src="assets/examples/lior-duck.png" alt=""><span>Magret de canard, figues rôties & miel</span></div>
+            <div class="product"><img src="assets/examples/lior-chocolate.png" alt=""><span>Assortiment de chocolats artisanaux</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="offre">
+    <section class="benefit-line">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Un univers plus chaleureux pour une activite commerce ou alimentaire.</h2>
-          <p>Un style different des artisans techniques, avec plus de visuel, d'ambiance et de desirabilite.</p>
-        </div>
-        <div class="menu-grid">
-          <article class="showcase">
-            <h3>Produits du jour et commandes entreprise</h3>
-            <p>Une grande zone visuelle pour mettre en avant les produits, les plateaux et les offres saisonnieres.</p>
-          </article>
-          <div class="cards">
-            <article class="card"><span>01</span><h3>Plateaux repas</h3><p>Formules du midi, livraison possible et commandes groupees.</p></article>
-            <article class="card"><span>02</span><h3>Evenements</h3><p>Buffets, cocktails, reunions et prestations sur mesure.</p></article>
-            <article class="card"><span>03</span><h3>Boutique</h3><p>Selection maison, produits frais et idees cadeaux gourmandes.</p></article>
-          </div>
+        <h2 class="benefit-title">Une page qui donne envie de commander</h2>
+        <div class="benefits">
+          <article class="benefit"><div class="icon">♢</div><h3>Fraîcheur garantie</h3><p>Produits de saison rigoureusement sélectionnés.</p></article>
+          <article class="benefit"><div class="icon">⌒</div><h3>Offres sur-mesure</h3><p>Formules adaptées à vos envies et à votre budget.</p></article>
+          <article class="benefit"><div class="icon">⌖</div><h3>Service local</h3><p>Une équipe réactive, passionnée et proche.</p></article>
+          <article class="benefit"><div class="icon">□</div><h3>Présentation soignée</h3><p>Prestations élégantes pensées pour faire la différence.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section class="steps-band">
+      <div class="wrap steps-layout">
+        <div class="steps-title">Commander en toute simplicité</div>
+        <div class="steps">
+          <article class="step"><b>1</b><div><h3>Choisissez</h3><p>Parcourez notre offre et sélectionnez vos produits ou prestations.</p></div></article>
+          <article class="step"><b>2</b><div><h3>Validez</h3><p>Envoyez votre demande en ligne ou contactez-nous directement.</p></div></article>
+          <article class="step"><b>3</b><div><h3>Savourez</h3><p>Nous préparons avec soin, vous profitez en toute sérénité.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap season-grid">
+        <article class="season-card"><h2 class="section-title">Les saveurs de saison</h2><p>Des inspirations renouvelées au fil des saisons.</p><a style="color:var(--terracotta);font-weight:800" href="#contact">Voir les nouveautés →</a></article>
+        <div><div class="season-img" style="--image:url('assets/examples/lior-dessert.png')"></div><p>Tartelette fruits rouges & crème légère</p></div>
+        <div><div class="season-img" style="--image:url('assets/examples/lior-duck.png')"></div><p>Magret de canard, figues rôties & miel</p></div>
+        <div><div class="season-img" style="--image:url('assets/examples/lior-chocolate.png')"></div><p>Assortiment de chocolats artisanaux</p></div>
+        <article class="season-card quote"><strong>“Un traiteur d'exception !”</strong><p>Tout est toujours délicieux, raffiné et livré avec le sourire.</p><p>— Claire D., Office Manager</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-band">
       <div class="wrap contact">
-        <div class="contact-panel">
-          <h2>Une page qui donne envie de commander.</h2>
-          <p>La maquette peut etre adaptee a une boulangerie, un traiteur, une epicerie fine, un caviste ou un commerce de quartier.</p>
-          <div class="contact-list">
-            <a class="contact-item" href="mailto:atelierlocalweb@gmail.com"><small>Contact maquette</small>atelierlocalweb@gmail.com</a>
-            <div class="contact-item"><small>Type</small>Commerce, PME alimentaire, boutique locale</div>
+        <aside class="contact-info">
+          <h2>Votre boutique et traiteur à vos côtés</h2>
+          <div class="contact-list"><span>15 rue des Saveurs, 69002 Lyon</span><span>Du mardi au samedi : 9h00 - 19h00</span><span>04 78 123 456</span><span>bonjour@maisonlior.fr</span></div>
+        </aside>
+        <div class="storefront" aria-hidden="true"></div>
+        <form class="order-form">
+          <h2>Demande de commande ou de devis</h2>
+          <div class="form-grid">
+            <input aria-label="Nom complet" placeholder="Nom complet">
+            <input aria-label="Entreprise" placeholder="Entreprise (facultatif)">
+            <input aria-label="Email" placeholder="Email">
+            <input aria-label="Téléphone" placeholder="Téléphone">
+            <input aria-label="Date souhaitée" placeholder="Date souhaitée">
+            <select aria-label="Type de prestation"><option>Type de prestation</option><option>Plateaux repas</option><option>Événement</option><option>Boutique</option></select>
+            <textarea aria-label="Message" placeholder="Votre message / détails de votre demande"></textarea>
+            <button class="btn btn-primary" type="button">Envoyer ma demande</button>
           </div>
-        </div>
-        <div class="notice">
-          <div><strong>Maquette fictive</strong><span>Nom, activite et contenus crees pour presenter un style de site possible.</span></div>
-          <div><strong>Adaptable</strong><span>Photos produits, carte, horaires, adresse et systeme de commande peuvent etre ajoutes.</span></div>
-        </div>
+        </form>
       </div>
     </section>
+    <div class="concept">Ce concept s'adapte à votre univers : boulangerie, traiteur, épicerie fine, caviste ou commerce local.</div>
   </main>
 
-  <footer><div class="wrap">Maison Lior est une maquette fictive creee par Atelier Local Web.</div></footer>
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="#top"><span class="brand-mark">⌁</span><span><strong>Maison Lior</strong><small>Traiteur et boutique gourmande</small></span></a>
+      <span>Maison Lior est une maquette fictive créée par <a href="index.html">Atelier Local Web</a>.</span>
+    </div>
+  </footer>
 </body>
 </html>
-
