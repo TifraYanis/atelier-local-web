@@ -6,18 +6,36 @@
   <meta name="robots" content="noindex, nofollow">
   <title>AADM - Plombier chauffagiste à Saint-Étienne</title>
   <meta name="description" content="AADM accompagne les particuliers et professionnels pour la plomberie, le chauffage, les sanitaires et les dépannages autour de Saint-Étienne.">
-  <link rel="stylesheet" href="../assets/client-showcase.css">
-  <style>:root { --hero-image: url("../../assets/generated/aadm-hero.png"); }</style>
+  <link rel="stylesheet" href="../assets/client-brands/aadm/aadm_tokens.css">
+  <link rel="stylesheet" href="../assets/client-redesign.css">
 </head>
-<body class="theme-aadm">
+<body class="client-aadm">
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z"/><circle cx="12" cy="10" r="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.9 2.9-3-3 2.9-2.9Z"/></symbol>
+    <symbol id="i-bath" viewBox="0 0 24 24"><path d="M4 11h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-3Z"/><path d="M6 11V5a3 3 0 0 1 6 0"/><path d="M4 21l1.5-2"/><path d="M20 21l-1.5-2"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-4-3-6.5-5-9-.5 2-1.5 3.5-3 5-.8-2-2-3.5-4-5 0 4-2 6-2 9a7 7 0 0 0 7 7Z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M9 4h6l1 2h3v16H5V6h3Z"/><path d="M9 12h6"/><path d="M9 16h4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 5h16v14H4Z"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></symbol>
+  </svg>
+
   <header class="topbar">
     <nav class="wrap nav" aria-label="Navigation principale">
-      <a class="brand" href="#top" aria-label="Accueil AADM"><strong>AADM</strong></a>
+      <a class="brand" href="#top" aria-label="Accueil AADM">
+        <img src="../assets/client-brands/aadm/aadm_logo_horizontal_dark.svg" alt="AADM">
+      </a>
       <div class="navlinks">
         <a href="#prestations">Prestations</a>
         <a href="#intervention">Intervention</a>
         <a href="#contact">Contact</a>
-        <a class="btn btn-primary" href="tel:+33477214747"><i data-lucide="phone"></i>Appeler</a>
+        <a class="btn btn-primary" href="tel:0477214747"><svg class="icon"><use href="#i-phone"></use></svg>Appeler</a>
       </div>
     </nav>
   </header>
@@ -30,16 +48,16 @@
           <p class="hero-subtitle">Une intervention claire, rapide et sans mauvaise surprise.</p>
           <p class="lead">Dépannage plomberie, recherche de fuite, sanitaires, chauffage et petits travaux pour particuliers et professionnels autour de Saint-Étienne.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:aadm.42000@yahoo.fr?subject=Demande%20de%20devis%20plomberie"><i data-lucide="file-text"></i>Demander un devis</a>
-            <a class="btn btn-secondary" href="#prestations"><i data-lucide="list"></i>Voir les prestations</a>
+            <a class="btn btn-primary" href="mailto:aadm.42000@yahoo.fr?subject=Demande%20de%20devis%20plomberie"><svg class="icon"><use href="#i-file"></use></svg>Demander un devis</a>
+            <a class="btn btn-secondary" href="#prestations"><svg class="icon"><use href="#i-list"></use></svg>Voir les prestations</a>
           </div>
           <div class="quick-grid">
-            <div class="quick-card"><i data-lucide="map-pin"></i><strong>Basé à<br>Saint-Étienne</strong></div>
-            <div class="quick-card"><i data-lucide="phone"></i><strong>Téléphone et<br>email visibles</strong></div>
-            <div class="quick-card"><i data-lucide="shield-check"></i><strong>Interventions<br>lisibles et suivies</strong></div>
+            <div class="quick-card"><svg class="icon"><use href="#i-pin"></use></svg><strong>Basé à<br>Saint-Étienne</strong></div>
+            <div class="quick-card"><svg class="icon"><use href="#i-phone"></use></svg><strong>Téléphone et<br>email visibles</strong></div>
+            <div class="quick-card"><svg class="icon"><use href="#i-shield"></use></svg><strong>Interventions<br>lisibles et suivies</strong></div>
           </div>
         </div>
-        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-visual" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -47,32 +65,23 @@
       <div class="wrap">
         <div class="section-head" data-reveal>
           <span class="section-kicker">Prestations</span>
-          <h2>Des prestations claires, courantes et recherchées.</h2>
-          <p>Une présentation simple pour identifier vite le bon service et obtenir une réponse adaptée.</p>
+          <h2>Tout ce qu’un client cherche avant d’appeler un plombier</h2>
+          <p>Des prestations claires, courantes et recherchées par les particuliers et professionnels.</p>
         </div>
         <div class="service-grid">
           <article class="service-card" data-reveal>
-            <div class="service-icon"><i data-lucide="wrench"></i></div>
-            <div>
-              <h3>Dépannage plomberie</h3>
-              <p>Intervention rapide pour fuite, robinetterie, chasse d'eau, évacuation ou remplacement courant.</p>
-            </div>
+            <div class="service-icon"><svg class="icon"><use href="#i-wrench"></use></svg></div>
+            <div><h3>Dépannage plomberie</h3><p>Intervention rapide pour tous vos problèmes de plomberie.</p></div>
             <div class="tags"><span>Urgence</span><span>Diagnostic</span><span>Réparation</span></div>
           </article>
           <article class="service-card" data-reveal>
-            <div class="service-icon"><i data-lucide="bath"></i></div>
-            <div>
-              <h3>Sanitaires & pièces d'eau</h3>
-              <p>Installation, remplacement et raccordement des équipements sanitaires.</p>
-            </div>
+            <div class="service-icon"><svg class="icon"><use href="#i-bath"></use></svg></div>
+            <div><h3>Sanitaires & pièces d’eau</h3><p>Installation, remplacement et raccordement de vos équipements.</p></div>
             <div class="tags"><span>Salle de bain</span><span>WC</span><span>Raccordement</span></div>
           </article>
           <article class="service-card" data-reveal>
-            <div class="service-icon"><i data-lucide="flame"></i></div>
-            <div>
-              <h3>Chauffage & entretien</h3>
-              <p>Entretien, réglage et dépannage pour un confort optimal au quotidien.</p>
-            </div>
+            <div class="service-icon"><svg class="icon"><use href="#i-flame"></use></svg></div>
+            <div><h3>Chauffage & entretien</h3><p>Entretien, réglage et dépannage pour un confort optimal.</p></div>
             <div class="tags"><span>Confort</span><span>Maintenance</span><span>Suivi</span></div>
           </article>
         </div>
@@ -82,22 +91,22 @@
     <section id="intervention" class="section section-soft">
       <div class="wrap">
         <div class="section-head" data-reveal>
-          <h2>Un parcours simple pour obtenir une réponse.</h2>
+          <h2>Un parcours simple pour obtenir une réponse</h2>
         </div>
         <div class="process">
           <article class="process-step" data-reveal>
             <span class="process-number">1</span>
-            <div class="process-icon"><i data-lucide="message-square"></i></div>
+            <div class="process-icon"><svg class="icon"><use href="#i-message"></use></svg></div>
             <div><h3>Le besoin est qualifié</h3><p>Vous décrivez votre besoin et nous identifions la meilleure solution.</p></div>
           </article>
           <article class="process-step" data-reveal>
             <span class="process-number">2</span>
-            <div class="process-icon"><i data-lucide="clipboard-list"></i></div>
-            <div><h3>La solution est présentée</h3><p>Nous expliquons clairement l'intervention, le matériel et le tarif.</p></div>
+            <div class="process-icon"><svg class="icon"><use href="#i-clipboard"></use></svg></div>
+            <div><h3>La solution est présentée</h3><p>Nous expliquons clairement l’intervention et le tarif.</p></div>
           </article>
           <article class="process-step" data-reveal>
             <span class="process-number">3</span>
-            <div class="process-icon"><i data-lucide="phone-call"></i></div>
+            <div class="process-icon"><svg class="icon"><use href="#i-phone"></use></svg></div>
             <div><h3>Le contact est immédiat</h3><p>Nous restons joignables par téléphone ou email pour intervenir rapidement.</p></div>
           </article>
         </div>
@@ -110,14 +119,14 @@
           <h2>Pourquoi choisir AADM ?</h2>
         </div>
         <div class="benefits-grid">
-          <article class="benefit-card" data-reveal><div class="benefit-icon"><i data-lucide="phone"></i></div><h3>Appel toujours accessible</h3><p>Un bouton d'appel visible pour nous joindre en un clic.</p></article>
-          <article class="benefit-card" data-reveal><div class="benefit-icon"><i data-lucide="eye"></i></div><h3>Prestations faciles à scanner</h3><p>Des services clairs et structurés pour trouver rapidement ce que vous cherchez.</p></article>
-          <article class="benefit-card" data-reveal><div class="benefit-icon"><i data-lucide="mail"></i></div><h3>Coordonnées centralisées</h3><p>Email, téléphone et adresse réunis au même endroit.</p></article>
-          <article class="benefit-card" data-reveal><div class="benefit-icon"><i data-lucide="shield-check"></i></div><h3>Image professionnelle</h3><p>Une présentation claire, moderne et rassurante.</p></article>
+          <article class="benefit-card" data-reveal><div class="benefit-icon"><svg class="icon"><use href="#i-phone"></use></svg></div><h3>CTA appel toujours accessible</h3><p>Un bouton d’appel visible en haut de chaque page.</p></article>
+          <article class="benefit-card" data-reveal><div class="benefit-icon"><svg class="icon"><use href="#i-eye"></use></svg></div><h3>Services faciles à scanner</h3><p>Des prestations claires pour trouver rapidement ce que vous cherchez.</p></article>
+          <article class="benefit-card" data-reveal><div class="benefit-icon"><svg class="icon"><use href="#i-mail"></use></svg></div><h3>Coordonnées au même endroit</h3><p>Adresse, email et téléphone visibles et faciles à trouver.</p></article>
+          <article class="benefit-card" data-reveal><div class="benefit-icon"><svg class="icon"><use href="#i-shield"></use></svg></div><h3>Image professionnelle</h3><p>Un site moderne, transparent et pensé pour rassurer.</p></article>
           <article class="map-card" data-reveal>
             <h3>Autour de Saint-Étienne</h3>
-            <div class="map-art"><i data-lucide="map-pin"></i></div>
-            <p>Saint-Étienne, La Ricamarie, L'Horme, Firminy, Roche-la-Molière et communes alentour.</p>
+            <div class="map-art"><svg class="icon"><use href="#i-pin"></use></svg></div>
+            <p>Saint-Étienne, La Ricamarie, L’Horme, Firminy, Le Chambon-Feugerolles, Roche-la-Molière, Sorbiers, Saint-Genest-Lerpt, Villars, La Talaudière et communes alentours.</p>
           </article>
         </div>
       </div>
@@ -126,16 +135,15 @@
     <section id="contact" class="section section-soft">
       <div class="wrap contact-band">
         <div class="contact-card" data-reveal>
-          <div class="contact-title">Contact</div>
-          <h2>AADM</h2>
+          <a class="brand" href="#top"><img src="../assets/client-brands/aadm/aadm_logo_horizontal.svg" alt="AADM"></a>
           <p>Plomberie, chauffage et sanitaires autour de Saint-Étienne.</p>
           <div class="contact-lines">
-            <a class="contact-line" href="mailto:aadm.42000@yahoo.fr"><i data-lucide="mail"></i><span>Email : aadm.42000@yahoo.fr</span></a>
-            <a class="contact-line" href="tel:+33477214747"><i data-lucide="phone"></i><span>Téléphone : <strong>04 77 21 47 47</strong></span></a>
-            <div class="contact-line"><i data-lucide="map-pin"></i><span>Adresse : 12 Rue des Coopérateurs, 42000 Saint-Étienne</span></div>
+            <a class="contact-line" href="mailto:aadm.42000@yahoo.fr"><svg class="icon"><use href="#i-mail"></use></svg><span>Email : aadm.42000@yahoo.fr</span></a>
+            <a class="contact-line" href="tel:0477214747"><svg class="icon"><use href="#i-phone"></use></svg><span>Téléphone : <strong>04 77 21 47 47</strong></span></a>
+            <div class="contact-line"><svg class="icon"><use href="#i-pin"></use></svg><span>Adresse : 12 Rue des Coopérateurs, 42000 Saint-Étienne</span></div>
           </div>
         </div>
-        <form class="quote-form" data-mail-form data-to="aadm.42000@yahoo.fr" data-subject="Demande de devis plomberie" data-reveal>
+        <form class="quote-form" data-mail-form data-to="aadm.42000@yahoo.fr" data-subject="Demande rapide AADM" data-reveal>
           <h2>Demande rapide</h2>
           <div class="form-grid">
             <label for="need">Besoin</label>
@@ -144,7 +152,7 @@
             <input id="city" data-label="Ville" placeholder="Votre ville">
             <label for="message">Message</label>
             <textarea id="message" data-label="Message" placeholder="Décrivez votre besoin"></textarea>
-            <button class="btn btn-primary" type="submit"><i data-lucide="send"></i>Préparer l'email</button>
+            <button class="btn btn-primary" type="submit"><svg class="icon"><use href="#i-send"></use></svg>Préparer l'email</button>
           </div>
         </form>
       </div>
@@ -153,12 +161,11 @@
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <strong>AADM</strong>
-      <span>AADM · Plomberie et chauffage à Saint-Étienne</span>
+      <img src="../assets/client-brands/aadm/aadm_logo_horizontal_dark.svg" alt="AADM">
+      <span>AADM • Plomberie et chauffage à Saint-Étienne</span>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="../assets/client-showcase.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+:root {
+  --cp-bg: #FAF8F5;
+  --cp-ink: #2B2F33;
+  --cp-terracotta: #C15A2B;
+  --cp-sand: #E9DCDC;
+  --cp-cream: #F3F1EE;
+  --cp-neutral-1: #ECE6DD;
+  --cp-neutral-2: #D8D1C3;
+  --cp-neutral-3: #BFB7AA;
+  --cp-radius-md: 12px;
+  --cp-radius-lg: 18px;
+  --cp-shadow: 0 12px 30px rgba(43, 47, 51, 0.08);
+  --cp-gradient-dark: linear-gradient(135deg, #2B2F33 0%, #22303A 100%);
+}
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--cp-bg);
+  color: var(--cp-ink);
+}
+h1, h2, h3 {
+  font-family: "Playfair Display", Georgia, serif;
+}
+.cp-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(43, 47, 51, 0.08);
+  border-radius: var(--cp-radius-lg);
+  box-shadow: var(--cp-shadow);
+}
+.cp-btn-primary {
+  background: var(--cp-terracotta);
+  color: #fff;
+  border-radius: 12px;
+  padding: 14px 22px;
+  font-weight: 700;
+}
+.cp-btn-secondary {
+  background: #fff;
+  color: var(--cp-ink);
+  border: 1px solid rgba(193, 90, 43, 0.4);
+  border-radius: 12px;
+  padding: 14px 22px;
+  font-weight: 700;
+}
